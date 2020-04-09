@@ -7,8 +7,7 @@ const cardSchema = new Schema({
     required: true 
   },
   image: { 
-    data: Buffer,
-    contentType: String,
+    type: String,
     required: true 
   },
   attack: Number,
