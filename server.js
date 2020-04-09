@@ -2,8 +2,39 @@ const express = require("express");
 
 const mongoose = require("mongoose");
 const routes = require("./routes");
+
+require("dotenv").config();
+
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + "@ds129018.mlab.com:29018/heroku_g9r80cft");
+
+
+//Passport and dependencies
+const passport     = require('passport');
+// const flash        = require('connect-flash');
+// const cookieParser = require('cookie-parser');
+const session      = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
+require('./config/passport')(passport);
+
+app.use(session({
+  key: 'user_sid',
+  secret: process.env.MYSECRET,
+  store: new MongoStore({
+    url: "mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + "@ds129018.mlab.com:29018/heroku_g9r80cft", 
+    ttl: 14 * 24 * 60 * 60, 
+    touchAfter: 3600, 
+    secret: process.env.MONGOCONNECTSECRET}),
+  resave: false,
+  saveUninitialized: false,
+
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -15,8 +46,6 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + "@ds129018.mlab.com:29018/heroku_g9r80cft");
 
 // Start the API server
 app.listen(PORT, function() {
