@@ -4,7 +4,7 @@ const gameCardController = require("../../controllers/gameCardController");
 // Matches with "/api/gameCards"
 router.route("/")
   .get(gameCardController.findAll)
-  .post(booksController.create);
+  //.post(booksController.create);
 
 // // Matches with "/api/books/:id"
 // router
