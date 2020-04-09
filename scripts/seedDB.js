@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+require("dotenv").config();
 
 require('dotenv').config()
 
@@ -14,6 +15,12 @@ const gameCardSeed = [
     image: "https://via.placeholder.com/150",
     attack: 40,
     HP: 100
+  },
+  {
+    name: "Test2",
+    image: "https://via.placeholder.com/150",
+    attack: 20,
+    HP: 50
   }
 ];
 
