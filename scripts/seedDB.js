@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const db = require("../models");
 require("dotenv").config();
 
+require('dotenv').config()
+
 mongoose.connect(
   process.env.MONGODB_URI ||
   "mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + "@ds129018.mlab.com:29018/heroku_g9r80cft"
