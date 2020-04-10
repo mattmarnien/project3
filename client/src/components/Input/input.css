@@ -1,0 +1,70 @@
+.singularityInput input[type=text]:focus + label {
+    color: #72afe4 !important;    
+  }
+  .singularityInput input[type=email]:focus + label {
+    color: #72afe4 !important;    
+  }
+  .singularityInput input[type=password]:focus + label {
+    color: #72afe4 !important;    
+  }
+  .singularityInput input[type=text] {
+    border-bottom: 1px solid #494848 ;
+  
+  }
+  .singularityInput input[type=email] {
+    border-bottom: 1px solid #494848 ;
+ 
+  }
+  .singularityInput input[type=password] {
+    border-bottom: 1px solid #494848 ;
+   
+  }
+  .singularityInput .validate input[type=text]:invalid {
+    border-bottom: 1px solid #494848 ;
+  
+  }
+  .singularityInput .validate input[type=email]:invalid {
+    border-bottom: 1px solid #494848 ;
+ 
+  }
+  .singularityInput .validate input[type=password]:invalid {
+    border-bottom: 1px solid #494848 ;
+   
+  }
+  .singularityInput .validate input[type=text]:valid {
+    border-bottom: 1px solid #72afe4 !important;
+  
+  }
+  .singularityInput .validate input[type=email]:valid {
+    border-bottom: 1px solid #72afe4 !important;
+ 
+  }
+  .singularityInput .validate input[type=password]:valid {
+    border-bottom: 1px solid #72afe4 !;
+   
+  }
+  .singularityInput input[type=text]:focus {
+    border-bottom: 1px solid #72afe4 !important;
+   
+  }
+  .singularityInput input[type=email]:focus {
+    border-bottom: 1px solid #72afe4 !important;
+  
+  }
+  .singularityInput input[type=password]:focus {
+    border-bottom: 1px solid #72afe4 !important;
+
+  }
+  
+  .singularityInput input[type=text]::placeholder {
+    color: #494848 ;
+   
+  }
+  .singularityInput input[type=email]::placeholder {
+    color: #494848 ;
+  
+  }
+  .singularityInput input[type=password]::placeholder {
+    color: #494848 ;
+
+  }
