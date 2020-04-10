@@ -24,6 +24,30 @@ const gameCardSeed = [
   }
 ];
 
+const userSeed = [
+  {
+    name: "David",
+    password: "1234",
+  },
+  {
+    name: "John",
+    password: "5678",
+  }
+];
+
+db.User
+  .remove()
+  .then(() => db.User.collection.insertMany(userSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+
 db.gameCard
   .remove({})
   .then(() => db.gameCard.collection.insertMany(gameCardSeed))
