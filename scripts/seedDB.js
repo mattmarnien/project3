@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 const db = require("../models");
 require("dotenv").config();
 
-require('dotenv').config()
-
 mongoose.connect(
   process.env.MONGODB_URI ||
   "mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + "@ds129018.mlab.com:29018/heroku_g9r80cft"
@@ -23,6 +21,30 @@ const gameCardSeed = [
     HP: 50
   }
 ];
+
+const userSeed = [
+  {
+    name: "David",
+    password: "1234",
+  },
+  {
+    name: "John",
+    password: "5678",
+  }
+];
+
+db.User
+  .remove()
+  .then(() => db.User.collection.insertMany(userSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
 
 db.gameCard
   .remove({})
