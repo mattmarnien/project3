@@ -1,0 +1,9 @@
+.card.horizontal {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+}
+
+/* .card-image {
+     align-self: flex-end !important;
+     float: right;
+}    */
