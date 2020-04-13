@@ -25,6 +25,7 @@ function App() {
         <Route path="/user" component={User} />
         <Route path="/cards" component={Library} />
       </Router>
+      {/* <Library /> */}
       <Footer />
     </>
   );
