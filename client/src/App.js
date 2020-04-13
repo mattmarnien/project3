@@ -22,7 +22,7 @@ function App() {
         <Route path="/login" component={Login} />
         <User />
       </Router>
-      <Library />
+      {/* <Library /> */}
       <Footer />
 
     </>
