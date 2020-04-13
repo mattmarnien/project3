@@ -1,7 +1,14 @@
 const router = require("express").Router();
-const gameCardRoutes = require("./gameCards");
+// const gameCardRoutes = require("./gameCards");
+const gameCardController = require("../../controllers/gameCardController");
 
 // gameCard routes
-router.use("/gameCards", gameCardRoutes);
+router.route("/gameCards/:name")
+.get(gameCardController.findCards)
+
+router.route("/gameCards")
+.get(gameCardController.findAllCards)
+
+
 
 module.exports = router;

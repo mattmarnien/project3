@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import './nav.css'
 
 function Nav() {
@@ -7,9 +8,11 @@ function Nav() {
       <div className="nav-wrapper navBar grey lighten-1">
         <a href="/" className="brand-logo center"><img className='logo' src={require('../assets/images/singularityLogo.png')} alt='singularity logo'/></a>
         <ul className="left hide-on-med-and-down">
-          <li><a href="sass.html">Cards</a></li>
-          <li><a href="badges.html">User</a></li>
+          <li><Link to="/cards">Cards</Link></li>
+          <li><Link to="/user">User</Link></li>
           <li className="active"><a href="collapsible.html">Decks</a></li>
+          <li><Link to="/login">Log in</Link></li>
+
         </ul>
       </div>
     </nav>

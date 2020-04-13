@@ -10,21 +10,22 @@ import User from "./pages/User";
 
 
 
+
 function App() {
   
   
   return (
     <>
 
-      <Nav />
+     
       <Router>
+        <Nav />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
-        <User />
+        <Route path="/user" component={User} />
+        <Route path="/cards" component={Library} />
       </Router>
-      <Library />
       <Footer />
-
     </>
   );
 }
