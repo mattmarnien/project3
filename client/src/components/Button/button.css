@@ -5,3 +5,7 @@
 .singularityButton:hover {
     background-color: #72afe4 ;
 }
+
+.singularityButton:focus{
+    background-color: #6091bd;
+}

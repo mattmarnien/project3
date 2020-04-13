@@ -6,7 +6,7 @@ function Input(props) {
     return (
     
             <div className="input-field singularityInput">
-                <input  {...props} />
+                <input {...props}/>
             </div>
          
     )
