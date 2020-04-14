@@ -5,8 +5,8 @@ export default {
   userLogin: login => {
     return axios.get("/api/login", login)
   },
-  getCards: data => {
-    return axios.get("/api/gameCards/" + data);
+  getCards: () => {
+    return axios.get("/api/gameCards/");
   },
   getUsers: () => {
     return axios.get("/api/users");

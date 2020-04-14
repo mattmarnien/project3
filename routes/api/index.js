@@ -7,13 +7,11 @@ router.use("/gameCards", gameCardRoutes);
 
 // User routes
 
-router.route("/users")
-.get(UserController.findUsers)
-.post(UserController.addUser)
+router.use("/users", userRoutes)
 
 router.route("/user")
 
-router.use("/users", userRoutes)
+
 
 
 module.exports = router;
