@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
     
       findUsers: function(req, res) {
-        db.gameCard
+        db.User
           .find({name: {$regex: req.params.name, $options: "i"}})
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
