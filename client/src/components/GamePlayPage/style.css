@@ -1,0 +1,95 @@
+.gamearea {
+   margin-top: 2vh;
+}
+
+.opponentRow1{
+    height: 18vh;
+    margin: 0;
+}
+.opponentRow2{
+    height: 22vh;
+    margin: 0;
+}
+
+.opponentPlayedCardsArea {
+    display: flex;
+    justify-content: center;
+    height: 22vh;
+    margin: 0;
+
+}
+
+.opponentPlayedCards{
+    height: 20vh;
+    width: 90%;
+    margin:auto;    
+  
+}
+
+.opponentHand{
+    height: 17vh;
+    width: 80%;
+    margin:auto;
+}
+
+.playerArea {
+    height: 40vh;
+    margin: 0;
+}
+
+.playerRow1 {
+    height: 22vh;
+    margin: 0;
+}
+
+.playerRow2 {
+    height: 18vh;
+    margin: 0;
+}
+
+.resourceArea {
+    height: 22vh;
+    margin: 0;
+}
+
+.userPlayedCardsArea {
+    display: flex;
+    justify-content: center;
+    height: 22vh;
+    margin: 0;
+
+}
+
+.userPlayedCards {
+    height: 20vh;
+    width: 90%;
+    margin:auto;    
+
+}
+
+.playerHandArea {
+    height: 18vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.playerHand {
+    height: 17vh;
+    width: 80%;
+    margin:auto;
+   /*  margin-top: 0;*/
+    margin-bottom: 0; 
+}
+/*Alternative player area layout*/
+/* .row2col1 {
+    height: 40vh;
+    margin:0;
+}
+
+.row2col2 {
+    height: 40vh;
+    margin: 0;
+}
+ */

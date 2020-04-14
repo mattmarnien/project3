@@ -7,6 +7,7 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import GameCard from "./components/GameCard";
 import User from "./pages/User";
+import GamePlay from "./pages/GamePlay"
 
 
 
@@ -17,16 +18,17 @@ function App() {
   return (
     <>
 
-      <Nav />
+     
       <Router>
+        <Nav />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
-        <User />
+        <Route path="/gameplay" component={GamePlay} />
+        <Route path="/user" component={User} />
+        <Route path="/cards" component={Library} />
+        <Footer />
       </Router>
-      <Library />
-      <Footer />
-     
-
+      
     </>
   );
 }
