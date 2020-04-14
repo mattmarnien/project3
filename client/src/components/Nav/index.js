@@ -3,6 +3,7 @@ import './nav.css'
 
 function Nav() {
   return (
+    
     <nav>
       <div className="nav-wrapper navBar grey lighten-1">
         <a href="/" className="brand-logo center"><img className='logo' src={require('../assets/images/singularityLogo.png')} alt='singularity logo'/></a>
@@ -12,8 +13,9 @@ function Nav() {
           <li className="active"><a href="collapsible.html">Decks</a></li>
         </ul>
       </div>
-    </nav>
-  );
+    </nav> 
+
+    );
 }
 
 export default Nav;
