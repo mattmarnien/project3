@@ -4,20 +4,21 @@ import "./style.css";
 function GameCard(props) {
   return (
     <>
-      <div class="row">
-        <div class="col s3">
-        <div class="card horizontal">
-          <div class="card-image">
+      <div className="row">
+        <div className="col s3">
+        <div className="card horizontal">
+          {props.name}
+          <div className="card-image">
             {/* props */}
-            <img src="https://lorempixel.com/100/190/nature/6" /> 
+            <img src={props.image} /> 
           </div>
-          <div class="card-stacked ">
-            <div class="card-content right-align">
+          <div className="card-stacked ">
+            <div className="card-content right-align">
               <ul>
                 <li>
                   {/* props */}
-                  Attack: 40
-                  HP: 100
+                  Attack: {props.attack}
+                  HP: {props.HP}
                 </li>
               </ul>
             </div>

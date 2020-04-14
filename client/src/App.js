@@ -10,22 +10,24 @@ import User from "./pages/User";
 import GamePlay from "./pages/GamePlay"
 
 
+
 function App() {
   
   
   return (
     <>
 
-      <Nav />
+     
       <Router>
+        <Nav />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/gameplay" component={GamePlay} />
-        <User />
+        <Route path="/user" component={User} />
+        <Route path="/cards" component={Library} />
+        <Footer />
       </Router>
-      {/* <Library /> */}
-      <Footer />
-
+      
     </>
   );
 }
