@@ -13,6 +13,7 @@ function Nav() {
           <li><Link to="/user">User</Link></li>
           <li><Link to="/deckbuilder">Decks</Link></li>
           <li><Link to="/login">Log in</Link></li>
+          <li><Link to="/deckbuilder">Deck Builder</Link></li>
         </ul>
       </div>
     </nav> 
