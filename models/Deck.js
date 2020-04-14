@@ -5,7 +5,6 @@ const deckSchema = new Schema({
   name: String,
   numberOfCards: {
     type: Number,
-    required: true,
     default: 30
   },
   card: [
