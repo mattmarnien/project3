@@ -3,7 +3,8 @@ import axios from "axios";
 export default {
   // Gets all books
   userLogin: login => {
-    return axios.get("/api/login", login)
+    console.log(login)
+    return axios.post("/api/login", login)
   },
   getCards: data => {
     return axios.get("/api/gameCards/" + data);

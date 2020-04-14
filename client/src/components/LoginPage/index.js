@@ -1,8 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./login.css"
+import Input from '../Input'
+import Button from '../Button'
+import API from '../../utils/API'
 
 function Login() {
+    const [loginForm, setLoginForm] = useState([]);
+    
+    const handleInputChange = event => {
+        const { name, value } = event.target;       
+        setLoginForm({...loginForm, [name]:value})       
+    }
+    const handleFormSubmit = event => {
+        event.preventDefault();
+        console.log(loginForm)
+        API.userLogin(loginForm)
+    }
+    
     return (
         <>
             <div className="container" style={{ marginTop: "100px" }}>
@@ -10,12 +25,14 @@ function Login() {
                 <form id="signin" name="signin" method="post" action="signin">
                     <div className="row">
                         <label for="username">Username</label>
-                        <input className="text" name="email" type="text" />
+                        <Input className="text" name="username" type="text" onChange={handleInputChange}/>
+                       
                         <label for="password">Password</label>
-                        <input name="password" type="password" />
+                        <Input name="password" type="password" onChange={handleInputChange}/>
+                        
                     </div>
-                    <div className='row'>
-                        <button className='waves-effect waves-light center btn-large' id='signUpBtn'>Log in</button>
+                    <div className='row center'>
+                        <Button classes='btn-large' id='signUpBtn' onClick={handleFormSubmit}>Log in</Button>
                     </div>
                 </form>
             </div>
