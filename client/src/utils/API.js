@@ -2,8 +2,11 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getBooks: function() {
-    return axios.get("/api/gameCards");
+  getCards: data => {
+    return axios.get("/api/gameCards/" + data);
+  },
+  getUsers: () => {
+    return axios.get("/api/users");
   }
   // Gets the book with the given id
   // getBook: function(id) {
