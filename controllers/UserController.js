@@ -20,12 +20,13 @@ module.exports = {
   },
   addUser: function (req, res) {
     console.log(req.body)
+    const user = new db.User({name: req.body.username, password: req.body.password})
+    user.password = user.generateHash(req.body.password)
+    console.log(user)
+    
     db.User
-      .create(req.body)
+      .create(user)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
-
-
-
 }
