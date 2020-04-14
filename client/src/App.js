@@ -24,8 +24,9 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/user" component={User} />
         <Route path="/cards" component={Library} />
+        <Footer />
       </Router>
-      <Footer />
+      
     </>
   );
 }

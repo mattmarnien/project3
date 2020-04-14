@@ -3,7 +3,6 @@ const db = require("../models");
 // Defining methods for the gameCardController
 module.exports = {
 
-
   findAllCards: function(req, res) {
     db.gameCard
       .find()

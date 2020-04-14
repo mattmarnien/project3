@@ -3,7 +3,6 @@ import './search.css'
 import Input from '../Input'
 import Button from '../Button'
 import DropdownMenu from '../DropdownMenu';
-import axios from "axios";
 import API from "../../utils/API"
 import GameCard from "../GameCard/index"
 
@@ -78,4 +77,4 @@ console.log(params)
         </div>
     )
 }
-export default Search
+export default Search;
