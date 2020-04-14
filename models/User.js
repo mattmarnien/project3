@@ -13,7 +13,7 @@ const userSchema = new Schema({
   deck: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'gameCard'
+      ref: 'Deck'
     }
   ]
 });
