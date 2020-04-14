@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import DeckBuilderPage from "../components/DeckBuilderPage/index"
 
 function DeckBuilder() {
-  return (
-    
-  );
+    return (
+        <DeckBuilderPage />
+    );
 }
 
 export default DeckBuilder;
