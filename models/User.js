@@ -14,8 +14,8 @@ const userSchema = new Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'gameCard'
-  }
-]
+    }
+  ]
 });
 
 const User = mongoose.model("User", userSchema);
