@@ -1,4 +1,5 @@
 module.exports = {
   gameCard: require("./gameCard"),
-  User: require("./User")
+  User: require("./User"),
+  Deck: require("./Deck")
 };
