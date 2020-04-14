@@ -7,6 +7,9 @@ export default {
   },
   getUsers: () => {
     return axios.get("/api/users");
+  },
+  addUser: user => {
+    return axios.post("/api/users", user);
   }
   // Gets the book with the given id
   // getBook: function(id) {
