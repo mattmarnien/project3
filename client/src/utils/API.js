@@ -1,9 +1,14 @@
 import axios from "axios";
 
 export default {
+  // Gets all books
+  userLogin: login => {
+    console.log(login)
+    return axios.post("/api/login", login)
+  },
   // Cards
-  getCards: data => {
-    return axios.get("/api/gameCards/" + data);
+  getCards: () => {
+    return axios.get("/api/gameCards/");
   },
 
   //User
@@ -22,10 +27,10 @@ export default {
     return axios.get("/api/decks")
   },
   getOneDeck: id => {
-    return axios.get("/api/deck/" + id)
+    return axios.get("/api/decks/" + id)
   },
-  buildDeck: () => {
-    return axios.post("/api/deck")
+  buildDeck: data => {
+    return axios.post("/api/decks", data)
   }
 
 

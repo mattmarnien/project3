@@ -1,9 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
+import Library from "../../components/Library/index"
 
 function UserPage() {
+  // const [decks, setDecks] = useState([])
+  // const [cards, setCards] = useState([])
+
+
   useEffect(() => {
     var el = document.querySelectorAll(".tabs");
     var instance = M.Tabs.init(el, {});

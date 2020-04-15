@@ -2,8 +2,41 @@
     display: flex !important;
     flex-direction: row-reverse !important;
 }
+.gameCard{
+   width: 200px;
+   height: 300px;
+    background-image: url('../assets/images/techBack.jfif');
+    background-size: contain;
+}
+.template {
+    z-index: 0;
+    
+}
 
-/* .card-image {
-     align-self: flex-end !important;
-     float: right;
-}    */
+.cardImage{
+    border: 2px solid silver;
+  
+   height: auto;
+   width: 80%;
+    /* position: relative; */
+    /* top: -401px;
+    left: 30px; */
+    z-index: 1;
+}
+
+.cardName {   
+    width: 70%;
+    height: 8%;
+    color: white;
+    position: relative;
+   
+    
+}
+
+.cardText{
+    background-color: silver;
+    display:inline-block;
+    width:80%;
+    height: 40%;
+}
+
