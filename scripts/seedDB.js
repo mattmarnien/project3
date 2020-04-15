@@ -24,7 +24,7 @@ const gameCardSeed = [
     attack: 6,
     HP: 3,
     type: 'Unit',
-    cost: 3,
+    cost: 5,
     class: 'Tech'
   },
   {
@@ -41,7 +41,7 @@ const gameCardSeed = [
     attack: 1,
     HP: 8,
     type: 'Unit',
-    cost: 3,
+    cost: 2,
     class: 'Tech'
   }, {
     name: "Drone",
@@ -49,7 +49,7 @@ const gameCardSeed = [
     attack: 1,
     HP: 1,
     type: 'Unit',
-    cost: 3,
+    cost: 1,
     class: 'Tech'
   }, {
     name: "Robot",
@@ -57,7 +57,7 @@ const gameCardSeed = [
     attack: 2,
     HP: 5,
     type: 'Unit',
-    cost: 3,
+    cost: 2,
     class: 'Tech'
   }, {
     name: "Hacker",
@@ -65,7 +65,7 @@ const gameCardSeed = [
     attack: 6,
     HP: 2,
     type: 'Unit',
-    cost: 3,
+    cost: 4,
     class: 'Tech'
   }, {
     name: "Familiar",
@@ -73,7 +73,7 @@ const gameCardSeed = [
     attack: 1,
     HP: 5,
     type: 'Unit',
-    cost: 3,
+    cost: 2,
     class: 'Arcane'
   }, {
     name: "Assassin",
@@ -81,7 +81,7 @@ const gameCardSeed = [
     attack: 5,
     HP: 1,
     type: 'Unit',
-    cost: 3,
+    cost: 2,
     class: 'Arcane'
   }, {
     name: "Knight",
@@ -89,7 +89,7 @@ const gameCardSeed = [
     attack: 3,
     HP: 6,
     type: 'Unit',
-    cost: 3,
+    cost: 4,
     class: 'Arcane'
   }, {
     name: "Demon",
@@ -97,7 +97,7 @@ const gameCardSeed = [
     attack: 8,
     HP: 8,
     type: 'Unit',
-    cost: 3,
+    cost: 6,
     class: 'Arcane'
   }, {
     name: "Sentry",
@@ -105,7 +105,7 @@ const gameCardSeed = [
     attack: 7,
     HP: 8,
     type: 'Unit',
-    cost: 3,
+    cost: 6,
     class: 'Tech'
   }, {
     name: "Rogue AI",
@@ -113,7 +113,7 @@ const gameCardSeed = [
     attack: 10,
     HP: 5,
     type: 'Unit',
-    cost: 3,
+    cost: 6,
     class: 'Tech'
   }, {
     name: "Mage for Hire",
@@ -121,7 +121,7 @@ const gameCardSeed = [
     attack: 8,
     HP: 2,
     type: 'Unit',
-    cost: 3,
+    cost: 4,
     class: 'Arcane'
   }, {
     name: "Warlock",
@@ -137,24 +137,24 @@ const gameCardSeed = [
     attack: 2,
     HP: 2,
     type: 'Unit',
-    cost: 3,
+    cost: 2,
     class: 'Tech'
   }, {
     name: "Tripwire",
-    image: "https://via.placeholder.com/150",
+    image: "tripwire.jpg",
     attack: 1,
     HP: 5,
     type: 'Unit',
-    cost: 3,
+    cost: 2,
     class: 'Tech'
     //defend only, damage on death
   }, {
     name: "Wards",
-    image: "https://via.placeholder.com/150",
+    image: "wards.jpg",
     attack: 1,
     HP: 5,
     type: 'Unit',
-    cost: 3,
+    cost: 2,
     class: 'Arcane'
     // defend only. damage on death
   }, {
@@ -167,7 +167,7 @@ const gameCardSeed = [
     class: 'Tech'
   }, {
     name: "Summoner",
-    image: "https://via.placeholder.com/150",
+    image: "summoner.jpg",
     attack: 1,
     HP: 1,
     type: 'Unit',
@@ -176,7 +176,7 @@ const gameCardSeed = [
     // Summons 1/1 unit every turn
   }, {
     name: "Developer",
-    image: "https://via.placeholder.com/150",
+    image: "developer.jpg",
     attack: 1,
     HP: 1,
     type: 'Unit',
@@ -185,25 +185,25 @@ const gameCardSeed = [
     //summons 1/1
   }, {
     name: "unstable familiar",
-    image: "https://via.placeholder.com/150",
+    image: "unstablefamiliar.jpg",
     attack: 4,
     HP: 1,
     type: 'Unit',
-    cost: 3,
+    cost: 2,
     class: 'Arcane'
     //lasts 1 turn
   }, {
     name: "vaporware",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.png",
     attack: 4,
     HP: 1,
     type: 'Unit',
-    cost: 3,
+    cost: 2,
     class: 'Tech'
     //lasts 1 turn
   }, {
     name: "Turret",
-    image: "https://via.placeholder.com/150",
+    image: "turret.jpg",
     attack: 5,
     HP: 1,
     type: 'Unit',
@@ -212,14 +212,14 @@ const gameCardSeed = [
     //can only defend
   }, {
     name: "Cancel",
-    image: "https://via.placeholder.com/150",
+    image: "cancel.jpg",
     type: 'Spell',
     cost: 2,
     class: 'Arcane'
     //counter magic, cost 2
   }, {
     name: "Stall",
-    image: "https://via.placeholder.com/150",
+    image: "delay.jpg",
     type: 'Spell',
     cost: 2,
     class: 'Tech'
@@ -227,31 +227,31 @@ const gameCardSeed = [
 
   }, {
     name: "Firebolt",
-    image: "https://via.placeholder.com/150",
+    image: "firebolt.jpg",
     //Magic Spell cost 1, 1 dmg   
     type: 'Spell',
-    cost: 2,
+    cost: 1,
     class: 'Arcane'
 
   }, {
     name: "Static",
-    image: "https://via.placeholder.com/150",
+    image: "static.jpg",
     type: 'Spell',
-    cost: 2,
+    cost: 1,
     class: 'Tech'
     //Tech spell cost 1, 1 dmg
 
   }, {
     name: "Fireball",
-    image: "https://via.placeholder.com/150",
+    image: "fireball.jpg",
     type: 'Spell',
-    cost: 2,
+    cost: 3,
     class: 'Arcane'
     //Magic spell cost 3, 2 dmg to all
 
   }, {
     name: "Heal",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Spell',
     cost: 2,
     class: 'Arcane'
@@ -259,22 +259,22 @@ const gameCardSeed = [
 
   }, {
     name: "Scry",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Spell',
-    cost: 2
+    cost: 1
     //Magic spell, look at X opponent's cards, cost 1+x 
 
   }, {
     name: "Hack",
-    image: "https://via.placeholder.com/150",
+    image: "hack.jpg",
     type: 'Spell',
-    cost: 2,
+    cost: 4,
     class: 'Tech'
     //Tech spell, look at opponent's hand, cost 4
 
   }, {
     name: "Resummon",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Spell',
     cost: 2,
     class: 'Arcane'
@@ -282,25 +282,25 @@ const gameCardSeed = [
 
   }, {
     name: "Interference",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Spell',
-    cost: 2,
+    cost: 1,
     class: 'Tech'
     // Tech spell, raises cost of magic by 1 for 1 round
 
   }, {
     name: "Teleport",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Spell',
-    cost: 2,
+    cost: 1,
     class: 'Tech'
     // Tech power, remove unit to owner's and, cost 1
 
   }, {
     name: "Whirlwind",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Spell',
-    cost: 2,
+    cost: 4,
     class: 'Arcane'
     //Magic spell, return random number of units to owner's hand, cost 4
 
@@ -314,7 +314,7 @@ const gameCardSeed = [
 
   }, {
     name: "Shield",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
     cost: 2,
     class: 'Arcane'
@@ -322,41 +322,41 @@ const gameCardSeed = [
 
   }, {
     name: "Rifle",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 3,
     class: 'Tech'
     //equipment +2 attack, cost 3
 
   }, {
     name: "Pistol",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 3,
     class: 'Tech'
     //equipment +1 attack, cost 2
 
   }, {
     name: "Medpack",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Tech'
     //equipment +2hp, cost 4
 
   }, {
     name: "Health Potion",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Arcane'
     //equipment +2hp, cost 4
 
   }, {
     name: "Staff",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Arcane'
     //equipment +1 hp +1 attack, +2hp vs magic, cost 4
 
@@ -364,53 +364,53 @@ const gameCardSeed = [
     name: "Datapad",
     image: "datapad.png",
     type: 'Equipment',
-    cost: 2,
+    cost: 5,
     class: 'Tech'
     // equipment reduce cost of tech spells by 1, cost 5
 
   }, {
     name: "Totem",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Arcane'
     // global equipment, increases magic damage by 1 cost 4
 
   }, {
     name: "Adrenals",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Tech'
     // global eq, increases tech damage by 1 cost 4
 
   }, {
     name: "Hideout",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 6,
     class: 'Tech'
     // global equipment, protect one unit after combat cost cost 6
 
   }, {
     name: "Sanctum",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 6,
     class: 'Arcane'
     // global equipment, protect one unit after combat cost 6
 
   }, {
     name: "Ambulance",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Tech'
     // return one unit to hand after combat cost 4
 
   }, {
     name: "Illusion",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
     cost: 2,
     class: 'Arcane'
@@ -418,7 +418,7 @@ const gameCardSeed = [
 
   }, {
     name: "Shield Spell",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
     cost: 2,
     class: 'Arcane'
@@ -426,17 +426,17 @@ const gameCardSeed = [
 
   }, {
     name: "Mail",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Arcane'
     // decrease damage to player by 1, cost 4
 
   }, {
     name: "Body Armor",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Tech'
     // decrease damage to player by 1, cost 4
 
@@ -450,57 +450,57 @@ const gameCardSeed = [
 
   }, {
     name: "Short Circuit",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Tech'
     // opponent discards 2 cards, cost 4
 
   }, {
     name: "Mass Recall",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 8,
     class: 'Arcane'
     // return all units to hand, cost 8
 
   }, {
     name: "Distraction",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 3,
     class: 'Tech'
     // target unable to block this turn, cost 3
 
   }, {
     name: "Flashbang",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Tech'
     // target unable to attack this turn, cost 4
 
   }, {
     name: "Entrench",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 5,
     class: 'Tech'
     // units gain 2 defense this turn, cost 5
 
   }, {
     name: "Grenade",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 5,
     class: 'Tech'
     // 1 damage to all opponent units, cost 5
 
   }, {
     name: "Armory",
-    image: "https://via.placeholder.com/150",
+    image: "placeholder.jpg",
     type: 'Equipment',
-    cost: 2,
+    cost: 4,
     class: 'Tech'
     // equipment cards cost 1 less, cost 4
 
