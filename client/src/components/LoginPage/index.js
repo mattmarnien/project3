@@ -7,6 +7,7 @@ import API from '../../utils/API'
 
 function Login() {
     const [loginForm, setLoginForm] = useState([]);
+    const [alertInfo, setAlertInfo] = useState({value: ''});
     
     const handleInputChange = event => {
         const { name, value } = event.target;       
@@ -15,19 +16,30 @@ function Login() {
     const handleFormSubmit = event => {
         event.preventDefault();
         console.log(loginForm)
-        API.userLogin(loginForm)
+        API.userLogin(loginForm).then(data => {
+            console.log(data)
+            if(data.status === 200){
+                window.location='/user'
+            }
+            else{
+                setAlertInfo({value: 'Incorrect username or password'})
+            }
+        }
+
+        )
     }
     
     return (
         <>
             <div className="container" style={{ marginTop: "100px" }}>
                 <h3 className='center'>Log in to your account</h3>
+                <h5 className='center' value=''>{alertInfo.value}</h5>
                 <form id="signin" name="signin" method="post" action="signin">
                     <div className="row">
-                        <label for="username">Username</label>
+                        <label htmlFor="username">Username</label>
                         <Input className="text" name="username" type="text" onChange={handleInputChange}/>
                        
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <Input name="password" type="password" onChange={handleInputChange}/>
                         
                     </div>

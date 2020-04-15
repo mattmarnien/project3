@@ -3,6 +3,9 @@ import "./style.css";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import Library from "../../components/Library/index"
+import UserPageDeck from "../UserPageDeck";
+import UserPageCards from "../UserPageCards";
+import UserPageStats from "../UserPageStats";
 
 function UserPage() {
   // const [decks, setDecks] = useState([])
@@ -30,9 +33,17 @@ function UserPage() {
         </div>
       </nav>
 
-      <div id="decks" className="col s12">Decks</div>
-      <div id="cards" className="col s12">Cards</div>
-      <div id="stats" className="col s12">Stats</div>
+      <div id="decks" className="col s12">
+        <UserPageDeck />
+      </div>
+      
+      <div id="cards" className="col s12">
+        <UserPageCards />
+      </div>
+      
+      <div id="stats" className="col s12">
+        <UserPageStats />
+      </div>
     </>
   );
 }
