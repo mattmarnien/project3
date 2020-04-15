@@ -14,7 +14,8 @@ function GamePlay(props) {
         {
             cards : [],
             avatar: "",
-            health: 30
+            health: 30,
+            playedCards: []
         }
     );
 
@@ -39,7 +40,11 @@ function GamePlay(props) {
       }, []);
     
     function cardSelect(event) {
-       /*  if(turn === "user"){ */
+        if(turn === "user"){
+
+           /*  var c = user.cards.shift();
+            console.log(user.cards);
+            console.log(c);  */
             console.log(event.target.id);
              var card  = user.cards.filter(card => {
             console.log(card._id);
@@ -62,13 +67,34 @@ function GamePlay(props) {
                 ...opponent,
                 health: opponent.health - card[0].attack
             })
-            /* setTurn("opponent");
-            opponentMove(); */
-       /*  } */
+
+             setTimeout(function(){  opponentMove(opponent.health - card[0].attack,cardHand,[...user.playedCards,card[0]]);}, 3000); 
+             setTurn("opponent");
+            /* opponentMove(opponent.health - card[0].attack,cardHand,[...user.playedCards,card[0]]); */
+        }
     }
 
-    function opponentMove() {
-        /* ... */
+    function opponentMove(newHealth,userCards,userPlayedCards) {
+       
+        var nextCard = opponent.cards[0];
+        var updatedCards = opponent.cards.filter((card,index) => {
+            return index !== 0;
+        });
+        console.log(updatedCards)
+        setOpponent({
+            ...opponent,
+            health: newHealth,
+            cards: updatedCards,
+            playedCards: [...opponent.playedCards,nextCard]
+        })
+        setUser ({
+            ...user,
+            cards: userCards,
+            playedCards: userPlayedCards,
+            health: user.health - nextCard.attack
+        })
+        setTurn("user");
+
     }
    
     
@@ -97,7 +123,11 @@ function GamePlay(props) {
                     </div>
                     <div className="col s10 opponentPlayedCardsArea">
                          <div class="opponentPlayedCards ">
-                           
+                            {opponent.playedCards.map(card => {
+                                return      (                            
+                                    <img className="opponentCard" src={require("../assets/images/" + card.image)} alt={card.name}></img>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
