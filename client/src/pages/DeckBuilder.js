@@ -5,7 +5,9 @@ import API from "../utils/API";
 function DeckBuilder() {
     const handleFormSubmit = event => {
         event.preventDefault();
-        API.getDeck();
+        API.buildDeck({name: "sample1", numberOfCards: 5}).then(() => {
+            API.getDeck();
+        });
     }
 
     return (
