@@ -5,6 +5,7 @@ const gameCardController = require("../../controllers/gameCardController");
 const UserController = require("../../controllers/UserController");
 const userRoutes = require("./Users");
 const passport = require('../../passport')
+const deckRoutes = require("./Decks");
 
 // gameCard routes
 router.use("/gameCards", gameCardRoutes);
@@ -20,14 +21,15 @@ router.route("/users")
 .post(UserController.addUser)
 
 router.route("/login")
-.post(passport.authenticate('local'),
-(req,res) => {
-    res.redirect('/')
-}
+.post(passport.authenticate('local')
 )
 
    
 
-router.use("/users", userRoutes)
+router.use("/users", userRoutes);
+
+// Deck routes
+router.use("/decks", deckRoutes);
+
 
 module.exports = router;
