@@ -83,7 +83,7 @@ function Search() {
                 <GameCard
                     key={card._id}
                     name={card.name}
-                    image={require('../assets/cardImages/' + card.image)}
+                    image={card.image}
                     attack={card.attack}
                     HP={card.HP}
                     cardBody="hello"
