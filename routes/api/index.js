@@ -9,11 +9,12 @@ const deckRoutes = require("./Decks");
 
 // gameCard routes
 router.use("/gameCards", gameCardRoutes);
-router.route("/gameCards/:name")
-.get(gameCardController.findCards)
 
-router.route("/gameCards")
-.get(gameCardController.findAllCards)
+// router.route("/gameCards/:name")
+// .get(gameCardController.findCards)
+
+// router.route("/gameCards")
+// .get(gameCardController.findAllCards)
 
 // User routes
 router.route("/users")
