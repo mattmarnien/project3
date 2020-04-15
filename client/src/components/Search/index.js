@@ -42,12 +42,8 @@ function Search() {
         console.log(form)
 
         const newCards = cards.filter(card => card.name.toLowerCase().includes(form.Search))
-
-    
-         newCards.filter(card => card.type.includes(form.Type))
-     
-           newCards.filter(card => card.cost === parseInt(form.Cost))
-    
+        newCards.filter(card => card.type.includes(form.Type))
+        newCards.filter(card => card.cost === parseInt(form.Cost))
 
         setFilteredCards(newCards)
     }
@@ -87,9 +83,10 @@ function Search() {
                 <GameCard
                     key={card._id}
                     name={card.name}
-                    image={card.image}
+                    image={require('../assets/cardImages/' + card.image)}
                     attack={card.attack}
                     HP={card.HP}
+                    cardBody="hello"
                 />
             ))}
         </div>
