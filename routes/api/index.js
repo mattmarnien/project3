@@ -12,7 +12,7 @@ router.route("/login")
 
 
 // gameCard routes
-router.route("/:id")
+router.route("/gameCards/:id")
   .get(gameCardController.findById)
 
 router.route("/gameCards/:name")
@@ -24,18 +24,17 @@ router.route("/users")
   .get(UserController.findUsers)
   .post(UserController.addUser)
 
-router.route("/:id")
-  .get(userController.findById)
+router.route("/users/:id")
+  .get(UserController.findById)
 
 
 // Deck routes
-router.route("/")
-  .get(deckController.findAll)
-  .post(deckController.buildDeck)
+router.route("/decks")
+  .get(DeckController.findAll)
+  .post(DeckController.buildDeck)
 
-// Matches with "/api/decks/:id"
-router.route("/:id")
-  .get(deckController.findById)
+router.route("/decks/:id")
+  .get(DeckController.findById)
 
 
 module.exports = router;
