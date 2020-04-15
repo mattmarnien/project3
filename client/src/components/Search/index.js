@@ -11,7 +11,7 @@ function Search() {
     // const [cardSearch, setCardSearch] = useState('');
     const [cards, setCards] = useState([]);
     const [filteredCards, setFilteredCards] = useState([])
-    const [params, setParams] = useState([['Units', 'Spells'], ['1', '2', '3', '4', '5+'], ['10', '20', '30']]);
+    const [params, setParams] = useState([['All', 'Units', 'Spells'], ['All', '1', '2', '3', '4', '5+'], ['10', '20', '30']]);
     const labels = ['Type', 'Cost', 'Results'];
 
     // const [results, setResults] = useState("")
@@ -39,15 +39,15 @@ function Search() {
     const handleFormSubmit = event => {
         event.preventDefault();
 
+        console.log(form)
 
         const newCards = cards.filter(card => card.name.toLowerCase().includes(form.Search))
 
-        if (form.Type !== 'All') {
-            newCards.filter(card => card.type.includes(form.Type))
-        }
-        if (form.Cost !== 'All') {
-           newCards.filter(card => card.cost.includes(form.Cost))
-        }
+    
+         newCards.filter(card => card.type.includes(form.Type))
+     
+           newCards.filter(card => card.cost === parseInt(form.Cost))
+    
 
         setFilteredCards(newCards)
     }
