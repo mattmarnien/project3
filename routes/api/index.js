@@ -1,35 +1,40 @@
 const express = require('express')
 const router = require("express").Router();
-const gameCardRoutes = require("./gameCards");
+const passport = require('../../passport')
 const gameCardController = require("../../controllers/gameCardController");
 const UserController = require("../../controllers/UserController");
-const userRoutes = require("./Users");
-const passport = require('../../passport')
-const deckRoutes = require("./Decks");
+const DeckController = require("../../controllers/deckController");
+
+
+// Login route
+router.route("/login")
+  .post(passport.authenticate('local'))
+
 
 // gameCard routes
-router.use("/gameCards", gameCardRoutes);
-router.route("/gameCards/:name")
-.get(gameCardController.findCards)
+router.route("/gameCards/:id")
+  .get(gameCardController.findById)
 
-router.route("/gameCards")
-.get(gameCardController.findAllCards)
+router.route("/gameCards/:name")
+  .get(gameCardController.findCards)
+
 
 // User routes
 router.route("/users")
-.get(UserController.findUsers)
-.post(UserController.addUser)
+  .get(UserController.findUsers)
+  .post(UserController.addUser)
 
-router.route("/login")
-.post(passport.authenticate('local')
-)
+router.route("/users/:id")
+  .get(UserController.findById)
 
-   
-
-router.use("/users", userRoutes);
 
 // Deck routes
-router.use("/decks", deckRoutes);
+router.route("/decks")
+  .get(DeckController.findAll)
+  .post(DeckController.buildDeck)
+
+router.route("/decks/:id")
+  .get(DeckController.findById)
 
 
 module.exports = router;

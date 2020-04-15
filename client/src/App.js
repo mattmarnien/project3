@@ -9,6 +9,7 @@ import GameCard from "./components/GameCard";
 import User from "./pages/User";
 import DeckBuilder from "./pages/DeckBuilder"
 import GamePlay from "./pages/GamePlay"
+import Landing from "./pages/Landing"
 
 
 
@@ -23,6 +24,7 @@ function App() {
      
       <Router>
         <Nav />
+        <Route path="/home" component={Landing} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/gameplay" component={GamePlay} />
