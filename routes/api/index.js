@@ -17,7 +17,7 @@ router.route("/login")
 router.route("/gameCards/:id")
   .get(gameCardController.findById)
 
-router.route("/gameCards/:name")
+router.route("/gameCards/")
   .get(gameCardController.findCards)
 
 
