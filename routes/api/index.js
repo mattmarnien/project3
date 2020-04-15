@@ -8,14 +8,16 @@ const DeckController = require("../../controllers/deckController");
 
 // Login route
 router.route("/login")
-  .post(passport.authenticate('local'))
+  .post(passport.authenticate('local'), (req,res) =>{
+    res.json(req.user)
+  })
 
 
 // gameCard routes
 router.route("/gameCards/:id")
   .get(gameCardController.findById)
 
-router.route("/gameCards/:name")
+router.route("/gameCards/")
   .get(gameCardController.findCards)
 
 
