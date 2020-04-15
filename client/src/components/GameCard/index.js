@@ -31,13 +31,13 @@ function GameCard(props) {
     // </>
     <div className='container'>
       <div className='row'>
-        <div className='gameCard'>
-          <span className='center cardName'>{props.name}</span>
-          <img className='cardImage center' src={require('../assets/cardImages/' + props.image)} />
+        <div className='gameCard' onClick={props.onClick} data-card={props.name}>
+          <span className='center cardName' data-card={props.name}>{props.name}</span>
+          <img className='cardImage center' data-card={props.name} src={require('../assets/cardImages/' + props.image)} />
           <br />
-          <div class='cardText center'>
-            Cost: 1
-            Health: 2
+          <div className='cardText center' data-card={props.name}>
+            Cost: {props.cost}
+            HP: {props.HP}
             Defense: 3
             Flash
         {props.cardBody}

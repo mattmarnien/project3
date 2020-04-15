@@ -11,14 +11,14 @@ function Search() {
     // const [cardSearch, setCardSearch] = useState('');
     const [cards, setCards] = useState([]);
     const [filteredCards, setFilteredCards] = useState([])
-    const [params, setParams] = useState([['All', 'Units', 'Spells'], ['All', '1', '2', '3', '4', '5+'], ['10', '20', '30']]);
+    const [params, setParams] = useState([['All', 'Unit', 'Spell'], ['All', '1', '2', '3', '4', '5+'], ['10', '20', '30']]);
     const labels = ['Type', 'Cost', 'Results'];
 
     // const [results, setResults] = useState("")
     const [form, setForm] = useState({
         Search: "",
-        Type: "",
-        Cost: "",
+        Type: "Unit",
+        Cost: "1",
         Results: 10
     })
 
@@ -42,9 +42,9 @@ function Search() {
         console.log(form)
 
         const newCards = cards.filter(card => card.name.toLowerCase().includes(form.Search))
-        newCards.filter(card => card.type.includes(form.Type))
+        newCards.filter(card => card.type === form.Type)
         newCards.filter(card => card.cost === parseInt(form.Cost))
-
+        console.log(newCards)
         setFilteredCards(newCards)
     }
 
@@ -80,13 +80,15 @@ function Search() {
             </form>
 
             {filteredCards && filteredCards.slice(0, parseInt(form.Results)).map(card => (
+                console.log(card.HP),
                 <GameCard
                     key={card._id}
                     name={card.name}
-                    image={require('../assets/cardImages/' + card.image)}
+                    image={card.image}
                     attack={card.attack}
                     HP={card.HP}
-                    cardBody="hello"
+                    cardBody={card.cardBody}
+                    cost={card.cost}
                 />
             ))}
         </div>
