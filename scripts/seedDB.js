@@ -11,315 +11,497 @@ mongoose.connect(
 const gameCardSeed = [
   {
     name: "Thug",
-    image: "https://via.placeholder.com/150",
+    image: "thug.jpg",
     attack: 3,
-    HP: 5
+    HP: 5,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   },
   {
     name: "Sniper",
-    image: "https://via.placeholder.com/150",
+    image: "sniper.jfif",
     attack: 6,
-    HP: 3
+    HP: 3,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   },
   {
     name: "Mage",
-    image: "https://via.placeholder.com/150",
+    image: "mage.jpg",
     attack: 8,
-    HP: 1
+    HP: 1,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
   }, {
     name: "Law Enforcement",
-    image: "https://via.placeholder.com/150",
+    image: "lawenforcement.jpg",
     attack: 1,
-    HP: 8
+    HP: 8,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   }, {
     name: "Drone",
-    image: "https://via.placeholder.com/150",
+    image: "drone.jpg",
     attack: 1,
-    HP: 1
+    HP: 1,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   }, {
     name: "Robot",
-    image: "https://via.placeholder.com/150",
+    image: "robot.jpg",
     attack: 2,
-    HP: 5
+    HP: 5,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   }, {
     name: "Hacker",
-    image: "https://via.placeholder.com/150",
+    image: "hacker.png",
     attack: 6,
-    HP: 2
+    HP: 2,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   }, {
     name: "Familiar",
-    image: "https://via.placeholder.com/150",
+    image: "familiar.jpg",
     attack: 1,
-    HP: 5
+    HP: 5,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
   }, {
     name: "Assassin",
-    image: "https://via.placeholder.com/150",
+    image: "assassin.png",
     attack: 5,
-    HP: 1
+    HP: 1,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
   }, {
     name: "Knight",
-    image: "https://via.placeholder.com/150",
+    image: "knight.jpg",
     attack: 3,
-    HP: 6
+    HP: 6,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
   }, {
     name: "Demon",
-    image: "https://via.placeholder.com/150",
+    image: "demon.jpg",
     attack: 8,
-    HP: 8
+    HP: 8,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
   }, {
     name: "Sentry",
-    image: "https://via.placeholder.com/150",
+    image: "sentry.png",
     attack: 7,
-    HP: 8
+    HP: 8,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   }, {
     name: "Rogue AI",
-    image: "https://via.placeholder.com/150",
+    image: "rogueAI.jpg",
     attack: 10,
-    HP: 5
+    HP: 5,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   }, {
     name: "Mage for Hire",
-    image: "https://via.placeholder.com/150",
+    image: "mageforhire.jpg",
     attack: 8,
-    HP: 2
+    HP: 2,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
   }, {
     name: "Warlock",
-    image: "https://via.placeholder.com/150",
+    image: "warlock.jpg",
     attack: 6,
-    HP: 1
+    HP: 1,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
   }, {
     name: "Private Security",
-    image: "https://via.placeholder.com/150",
+    image: "privatesecurity.jpg",
     attack: 2,
-    HP: 2
+    HP: 2,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   }, {
     name: "Tripwire",
     image: "https://via.placeholder.com/150",
     attack: 1,
-    HP: 5
+    HP: 5,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
     //defend only, damage on death
   }, {
     name: "Wards",
     image: "https://via.placeholder.com/150",
     attack: 1,
-    HP: 5
+    HP: 5,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
     // defend only. damage on death
   }, {
     name: "Merc",
-    image: "https://via.placeholder.com/150",
+    image: "merc.jpg",
     attack: 3,
-    HP: 3
+    HP: 3,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
   }, {
     name: "Summoner",
     image: "https://via.placeholder.com/150",
     attack: 1,
-    HP: 1
+    HP: 1,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
     // Summons 1/1 unit every turn
   }, {
     name: "Developer",
     image: "https://via.placeholder.com/150",
     attack: 1,
-    HP: 1
+    HP: 1,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
     //summons 1/1
   }, {
     name: "unstable familiar",
     image: "https://via.placeholder.com/150",
     attack: 4,
-    HP: 1
+    HP: 1,
+    type: 'Unit',
+    cost: 3,
+    class: 'Arcane'
     //lasts 1 turn
   }, {
     name: "vaporware",
     image: "https://via.placeholder.com/150",
     attack: 4,
-    HP: 1
+    HP: 1,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
     //lasts 1 turn
   }, {
     name: "Turret",
     image: "https://via.placeholder.com/150",
     attack: 5,
-    HP: 1
+    HP: 1,
+    type: 'Unit',
+    cost: 3,
+    class: 'Tech'
     //can only defend
   }, {
     name: "Cancel",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Arcane'
     //counter magic, cost 2
   }, {
     name: "Stall",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Tech'
     //counter tech, cost 2
 
   }, {
     name: "Firebolt",
     image: "https://via.placeholder.com/150",
-    //Magic Spell cost 1, 1 dmg 
+    //Magic Spell cost 1, 1 dmg   
+    type: 'Spell',
+    cost: 2,
+    class: 'Arcane'
 
   }, {
     name: "Static",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Tech'
     //Tech spell cost 1, 1 dmg
 
   }, {
     name: "Fireball",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Arcane'
     //Magic spell cost 3, 2 dmg to all
 
   }, {
     name: "Heal",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Arcane'
     // Magic spell, cost 2, heal 5
 
   }, {
     name: "Scry",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2
     //Magic spell, look at X opponent's cards, cost 1+x 
 
   }, {
     name: "Hack",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Tech'
     //Tech spell, look at opponent's hand, cost 4
 
   }, {
     name: "Resummon",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Arcane'
     // magic spell, unit out of discard, cost 2+unit cost
 
   }, {
     name: "Interference",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Tech'
     // Tech spell, raises cost of magic by 1 for 1 round
 
   }, {
     name: "Teleport",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Tech'
     // Tech power, remove unit to owner's and, cost 1
 
   }, {
     name: "Whirlwind",
     image: "https://via.placeholder.com/150",
+    type: 'Spell',
+    cost: 2,
+    class: 'Arcane'
     //Magic spell, return random number of units to owner's hand, cost 4
 
   }, {
     name: "Sword",
-    image: "https://via.placeholder.com/150",
+    image: "sword.jpg",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     //equipment, +1 attack, cost 2
 
   }, {
     name: "Shield",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     //equipment, +1 hp, cost 2
 
   }, {
     name: "Rifle",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     //equipment +2 attack, cost 3
 
   }, {
     name: "Pistol",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     //equipment +1 attack, cost 2
 
   }, {
     name: "Medpack",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     //equipment +2hp, cost 4
 
   }, {
     name: "Health Potion",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     //equipment +2hp, cost 4
 
   }, {
     name: "Staff",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     //equipment +1 hp +1 attack, +2hp vs magic, cost 4
 
   }, {
     name: "Datapad",
-    image: "https://via.placeholder.com/150",
+    image: "datapad.png",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // equipment reduce cost of tech spells by 1, cost 5
 
   }, {
     name: "Totem",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     // global equipment, increases magic damage by 1 cost 4
 
   }, {
     name: "Adrenals",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // global eq, increases tech damage by 1 cost 4
 
   }, {
     name: "Hideout",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // global equipment, protect one unit after combat cost cost 6
 
   }, {
     name: "Sanctum",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     // global equipment, protect one unit after combat cost 6
 
   }, {
     name: "Ambulance",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // return one unit to hand after combat cost 4
 
   }, {
     name: "Illusion",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     // swap out a unit for another unit before combat begins, cost new unit - old unit + 2
 
   }, {
     name: "Shield Spell",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     // magic, protect player after combat, cost 2
 
   }, {
     name: "Mail",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     // decrease damage to player by 1, cost 4
 
   }, {
     name: "Body Armor",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // decrease damage to player by 1, cost 4
 
   }, {
     name: "Force Field",
-    image: "https://via.placeholder.com/150",
+    image: "forcefield.jpg",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // tech protect player after combat, cost 2
 
   }, {
     name: "Short Circuit",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // opponent discards 2 cards, cost 4
 
   }, {
     name: "Mass Recall",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Arcane'
     // return all units to hand, cost 8
 
   }, {
     name: "Distraction",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // target unable to block this turn, cost 3
 
   }, {
     name: "Flashbang",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // target unable to attack this turn, cost 4
 
   }, {
     name: "Entrench",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // units gain 2 defense this turn, cost 5
 
   }, {
     name: "Grenade",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // 1 damage to all opponent units, cost 5
 
   }, {
     name: "Armory",
     image: "https://via.placeholder.com/150",
+    type: 'Equipment',
+    cost: 2,
+    class: 'Tech'
     // equipment cards cost 1 less, cost 4
 
   },
