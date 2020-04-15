@@ -30,5 +30,11 @@ module.exports = {
       .create(user)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findUser: function (req,res) {
+    db.User
+      .find({name: req.body.name})
+      .then(user => res.json(user))
+      .catch(err => res.status(422).json(err));
   }
 }

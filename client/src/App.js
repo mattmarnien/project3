@@ -13,6 +13,7 @@ import GamePlay from "./pages/GamePlay"
 
 
 
+
 function App() {
   
   
@@ -28,6 +29,7 @@ function App() {
         <Route path="/user" component={User} />
         <Route path="/cards" component={Library} />
         <Route path="/deckbuilder" component={DeckBuilder} />
+        <Route path='/card' render={ () => <GameCard name='Hacker' image='hacker.png' />}/>
         <Footer />
       </Router>
       

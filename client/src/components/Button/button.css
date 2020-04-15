@@ -1,11 +1,11 @@
 .singularityButton {
-    background-color: #a70808;
+    background-color: #a70808 !important;
 }
 
 .singularityButton:hover {
-    background-color: #72afe4 ;
+    background-color: #72afe4 !important;
 }
 
 .singularityButton:focus{
-    background-color: #6091bd;
+    background-color: #6091bd !important;
 }

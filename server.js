@@ -1,5 +1,5 @@
 const express = require("express");
-
+const morgan = require('morgan')
 const mongoose = require("mongoose");
 const routes = require("./routes");
 
@@ -13,22 +13,18 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://" + process.env.DBUSER + 
 
 
 //Passport and dependencies
-const passport     = require('passport');
-// const flash        = require('connect-flash');
-// const cookieParser = require('cookie-parser');
+const passport     = require('./passport');
 const session      = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-require('./config/passport')(passport);
+
 
 app.use(session({
   key: 'user_sid',
   secret: process.env.MYSECRET,
   store: new MongoStore({
     url: "mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + "@ds129018.mlab.com:29018/heroku_g9r80cft", 
-    ttl: 14 * 24 *60  * 60, 
-    touchAfter: 3600, 
-    secret: process.env.MONGOCONNECTSECRET}),
+    ttl: 14 * 24 *60  * 60, }),
   resave: false,
   saveUninitialized: false,
 
