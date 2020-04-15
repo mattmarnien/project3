@@ -36,7 +36,10 @@ function GameCard(props) {
       <img className='cardImage center' src={require('../assets/cardImages/' + props.image)} /> 
       <br />
       <div class='cardText center'>
-        Sample Words
+        Cost: 1
+        Health: 2
+        Defense: 3
+        Flash
         {props.cardBody}
       </div>
     </div>

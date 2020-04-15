@@ -3,15 +3,9 @@ const db = require("../models");
 // Defining methods for the gameCardController
 module.exports = {
 
-  findAllCards: function(req, res) {
-    db.gameCard
-      .find()
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
   findCards: function(req, res) {
     db.gameCard
-      .find({name: {$regex: req.params.name, $options: "i"}})
+      .find()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

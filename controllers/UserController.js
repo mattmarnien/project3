@@ -2,7 +2,6 @@ const db = require("../models");
 
 module.exports = {
 
-
   findUsers: function (req, res) {
     db.User
       .find({
