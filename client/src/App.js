@@ -7,7 +7,9 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import GameCard from "./components/GameCard";
 import User from "./pages/User";
+import DeckBuilder from "./pages/DeckBuilder"
 import GamePlay from "./pages/GamePlay"
+
 
 
 
@@ -25,6 +27,7 @@ function App() {
         <Route path="/gameplay" component={GamePlay} />
         <Route path="/user" component={User} />
         <Route path="/cards" component={Library} />
+        <Route path="/deckbuilder" component={DeckBuilder} />
         <Footer />
       </Router>
       

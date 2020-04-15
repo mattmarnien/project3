@@ -1,19 +1,16 @@
 const router = require("express").Router();
-// const gameCardRoutes = require("./gameCards");
-const gameCardController = require("../../controllers/gameCardController");
-const UserController = require("../../controllers/UserController");
+const gameCardRoutes = require("./gameCards");
+const userRoutes = require("./Users");
+const deckRoutes = require("./Decks");
 
 // gameCard routes
-router.route("/gameCards/:name")
-.get(gameCardController.findCards)
-
-router.route("/gameCards")
-.get(gameCardController.findAllCards)
+router.use("/gameCards", gameCardRoutes);
 
 // User routes
-router.route("/users")
-.get(UserController.findUsers)
-.post(UserController.addUser)
+router.use("/users", userRoutes);
+
+// Deck routes
+router.use("/decks", deckRoutes);
 
 
 module.exports = router;

@@ -74,3 +74,18 @@
     color: #494848 ;
 
   }
+
+  
+@keyframes autofill {
+  100% {
+      background: transparent;
+      color: #3a5c69;
+  }
+}
+
+@-webkit-keyframes autofill {
+  100% {
+      background: transparent;
+      color: inherit;
+  }
+}
