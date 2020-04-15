@@ -11,20 +11,18 @@ function DropdownMenu(props) {
     var instances = M.FormSelect.init(elems)
     }, [])
     
-
-
-console.log(props)
     return (
         <div className={classes}>
-            <select>
+           <label className="active" htmlFor={props.name}>{props.name}</label>
+            <select name={props.name} onChange={props.handler}>
                 {props.options.map((value, index) =>                 
                 <option key={index} value={value}>{value}</option>
-                )}       
+                )}
             </select>
         </div>
     )
 }
 
-export default DropdownMenu
+export default DropdownMenu;
 
 

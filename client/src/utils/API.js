@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
   // Cards
-  getCards: data => {
-    return axios.get("/api/gameCards/" + data);
+  getCards: () => {
+    return axios.get("/api/gameCards/");
   },
 
   //User
