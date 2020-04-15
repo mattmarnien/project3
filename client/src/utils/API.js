@@ -22,10 +22,10 @@ export default {
     return axios.get("/api/decks")
   },
   getOneDeck: id => {
-    return axios.get("/api/deck/" + id)
+    return axios.get("/api/decks/" + id)
   },
-  buildDeck: () => {
-    return axios.post("/api/deck")
+  buildDeck: data => {
+    return axios.post("/api/decks", data)
   }
 
 
