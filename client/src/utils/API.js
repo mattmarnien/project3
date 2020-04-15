@@ -15,9 +15,9 @@ export default {
   getUsers: () => {
     return axios.get("/api/users");
   },
-  userLogin: login => {
-    return axios.get("/api/login", login)
-  },
+  // userLogin: login => {
+  //   return axios.get("/api/login", login)
+  // },
   addUser: user => {
     return axios.post("/api/users", user);
   },
