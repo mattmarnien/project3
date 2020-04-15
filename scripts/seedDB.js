@@ -341,6 +341,7 @@ const deckSeed = [
   {
     name: "Sample1",
     numberOfCards: 4,
+    card : ["5e95dde9f9956303a8f0459a"]
   },
   {
     name: "Sample2",
