@@ -5,7 +5,6 @@ const gameCardController = require("../../controllers/gameCardController");
 const UserController = require("../../controllers/UserController");
 const DeckController = require("../../controllers/deckController");
 
-
 // Auth routes
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
@@ -28,15 +27,6 @@ router.route("/login")
      res.send(req.user)
    })
 
-  //  router.route("/logout")
-  //  .get(function(req, res){
-  //    console.log('logged out')
-  //   req.logout();
-  //   res.redirect('/');
-  // });
-
-
-
   router.route('/logout')
   .get(function (req, res){
     req.session.destroy(function (err) {
@@ -44,13 +34,6 @@ router.route("/login")
       res.redirect('/'); //Inside a callback… bulletproof!
     });
   });
-
-
-
-
-
-
-
 
 
 // gameCard routes
@@ -80,6 +63,5 @@ router.route("/decks")
 
 router.route("/decks/:id")
   .get(DeckController.findById)
-
 
 module.exports = router;

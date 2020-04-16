@@ -16,32 +16,28 @@ function App() {
 
   const [user, setUser] = useState({ user: null });
 
-useEffect( () => {
-  axios.get("/api/checkUser").then(response => {
-if(response.data){
-  setUser(response.data._id)
-}  
-})})
-
-
+  useEffect(() => {
+    axios.get("/api/checkUser").then(response => {
+      if (response.data) {
+        setUser(response.data._id)
+      }
+    })
+  })
 
   return (
     <>
-
-
       <Router>
-        <Nav user={user}/>
-        <Route exact path="/" component={Landing} />
+        <Nav user={user} />
+        <Route exact path="/" component={() => <Landing user={user} />} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
-        <Route path="/gameplay" component={()=> user.user !== null ? <GamePlay /> : <Login/>} />
-        <Route path="/user" component={()=> user.user !== null ? <User /> : <Login/>}  />
+        <Route path="/gameplay" component={() => user.user !== null ? <GamePlay userName={user} /> : <Login />} />
+        <Route path="/user" component={() => user.user !== null ? <User user={user} /> : <Login />} />
         <Route path="/cards" component={Library} />
-        <Route path="/deckbuilder" component={()=> user.user !== null ? <DeckBuilder userID={user}/> : <Login/>} />
-        <Route path='/card' render={ () => <GameCard name='Hacker' image='hacker.png' />}/>
+        <Route path="/deckbuilder" component={() => user.user !== null ? <DeckBuilder userID={user} /> : <Login />} />
+        <Route path='/card' render={() => <GameCard name='Hacker' image='hacker.png' />} />
         <Footer />
       </Router>
-
     </>
   );
 }

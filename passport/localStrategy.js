@@ -1,7 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 const db = require('../models');
 
-
 const strategy = new LocalStrategy(
 
 	function(username, password, done) {

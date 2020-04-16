@@ -72,9 +72,7 @@
   }
   .singularityInput input[type=password]::placeholder {
     color: #494848 ;
-
   }
-
   
 @keyframes autofill {
   100% {

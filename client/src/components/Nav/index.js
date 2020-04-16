@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom"
 import './nav.css'
 import API from "../../utils/API";
-import { PromiseProvider } from "mongoose";
 
 function Nav(props) {
-
-
 
   const logOut = () => {
     console.log('clicked')
@@ -16,11 +13,9 @@ function Nav(props) {
         console.log(res)
       })
       .catch(err => console.log(err))
-
   }
 
   return (
-
     <nav>
       <div className="nav-wrapper navBar grey lighten-1">
         <a href="/" className="brand-logo center"><img className='logo' src={require('../assets/images/singularityLogo.png')} alt='singularity logo' /></a>
@@ -33,7 +28,6 @@ function Nav(props) {
         </ul>
       </div>
     </nav>
-
   );
 }
 

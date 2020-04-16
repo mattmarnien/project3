@@ -6,12 +6,19 @@ import API from "../../utils/API"
 import GameCard from "../GameCard/index"
 
 function DeckBuilderPage({ handleFormSubmit, userID }) {
+    const [user, setUser] = useState("")
     const [cards, setCards] = useState([]);
     const [deckCards, setDeckCards] = useState([])
     const [cardIds, setCardIds] = useState([])
     const [AZ, setAZ] = useState(false)
 
     useEffect(() => {
+        API.getOneUser(userID)
+        .then(res => {
+            setUser(res.data.name)
+        })
+        .catch(err => console.log(err))
+
         API.getCards()
             .then(res => {
                 setCards(res.data)
@@ -35,15 +42,13 @@ function DeckBuilderPage({ handleFormSubmit, userID }) {
         console.log(deckCards)
         console.log(cardIds)
     }
+
     const buildNewDeck = () => {
-        const cardMessage = document.getElementById("cardMessage")
-        if (deckCards.length < 20) return alert(cardMessage.innerHTML)
-
-        let answer = window.confirm("Are you sure?")
-
-        if (!answer) return;
-
         let deckName = window.prompt("What do you want to call this deck?")
+
+        if (!deckName) {
+            return alert("You must gave your deck a name.")
+        }
 
         const newDeck = {
             name: deckName,
@@ -54,7 +59,7 @@ function DeckBuilderPage({ handleFormSubmit, userID }) {
             newDeck: newDeck,
             userID: userID
         }
-        //console.log(newDeck)
+
         API.buildDeck(userDeck)
             .then(res => {
                 console.log(res)
@@ -85,13 +90,10 @@ function DeckBuilderPage({ handleFormSubmit, userID }) {
     return (
         <>
             <div className="row">
-
-
                 <div className="col s4">
                     <div className="userInfo">
-
                         <img className="profilePic" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/feac120a-4482-4a91-9cee-fce7fbde0dbe/dawwejk-40a4c28d-0e29-49c0-8bea-848ca6b52f71.jpg/v1/fill/w_1024,h_1266,q_75,strp/ashton__c__by_astri_lohne_dawwejk-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI2NiIsInBhdGgiOiJcL2ZcL2ZlYWMxMjBhLTQ0ODItNGE5MS05Y2VlLWZjZTdmYmRlMGRiZVwvZGF3d2Vqay00MGE0YzI4ZC0wZTI5LTQ5YzAtOGJlYS04NDhjYTZiNTJmNzEuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.tuRmJARhtoN9PY1Hmr9HHJoaTQ0J-bly2LMIHVIWj_E" alt="Avatar" />
-                        <h6 className="">Username</h6>
+                        <h6 className="">{user}</h6>
                         {deckCards.length < 20 ?
                             <>
                                 <Button disabled classes='waves-effect waves-light center btn-large' onClick={buildNewDeck}>Complete Deck</Button>
@@ -99,7 +101,6 @@ function DeckBuilderPage({ handleFormSubmit, userID }) {
                             </> :
                             <Button classes='waves-effect waves-light center btn-large' onClick={buildNewDeck}>Complete Deck</Button>}
                     </div>
-                    
                     <div className="row deckSpace">
                         {deckCards && deckCards.map(card => (
                             <>
@@ -111,17 +112,12 @@ function DeckBuilderPage({ handleFormSubmit, userID }) {
                         ))}
                     </div>
                 </div>
-
                 <div className="col s8">
-
                     <h4 className="deckBuilderTitle">Deck Builder</h4>
-                    
                     <div className="sorting">
-                        <Button onClick={sortCards} classes='col s2' style={{ marginLeft: "5px", marginTop: "5px"}}>Sort Cards</Button>
+                        <Button onClick={sortCards} classes='col s2' style={{ marginLeft: "5px", marginTop: "5px" }}>Sort Cards</Button>
                     </div>
                     <div className="row cardArea">
-
-
                         {cards && cards.map(card => (
                             <div className="col s12 m6 l3 cardDiv">
                                 <GameCard
@@ -140,7 +136,6 @@ function DeckBuilderPage({ handleFormSubmit, userID }) {
                                 />
                             </div>
                         ))}
-
                     </div>
                 </div>
             </div>

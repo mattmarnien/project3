@@ -4,7 +4,6 @@ import API from "../../utils/API"
 import GameCard from "../GameCard/index"
 
 function UserPageStats() {
-
     return (
         <>
             <h4>This will display your stats</h4>
