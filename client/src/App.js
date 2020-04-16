@@ -18,7 +18,7 @@ function App() {
 
 useEffect( () => {
   axios.get("/api/checkUser").then(response => {
-if(response.data){
+if(response.data){ 
   setUser(response.data._id)
 }  
 })})
@@ -35,7 +35,7 @@ if(response.data){
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/gameplay" component={()=> user.user !== null ? <GamePlay /> : <Login/>} />
-        <Route path="/user" component={()=> user.user !== null ? <User /> : <Login/>}  />
+        <Route path="/user"  component={()=> user.user !== null ? <User /> : <Login/>}  />
         <Route path="/cards" component={Library} />
         <Route path="/deckbuilder" component={()=> user.user !== null ? <DeckBuilder userID={user}/> : <Login/>} />
         <Route path='/card' render={ () => <GameCard name='Hacker' image='hacker.png' />}/>
