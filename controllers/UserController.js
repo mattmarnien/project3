@@ -14,12 +14,12 @@ module.exports = {
   },
   findById: function (req, res) {
     db.User
-      .findOne({
-        where: {id: req.params.id},
-        include: {models: db.Deck}
-      })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .findOne({_id: req.params.id}
+        // include: {models: db.Deck}
+      ).then(dbModel => {
+        console.log(dbModel)
+        res.json(dbModel)
+      }).catch(err => res.status(422).json(err));
   },
   addUser: function (req, res) {
     console.log(req.body)

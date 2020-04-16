@@ -19,6 +19,10 @@ export default {
     return axios.get("/api/users");
   },
 
+  getOneUser: id => {
+    return axios.get("/api/users/" + id)
+  },
+
   addUser: user => {
     return axios.post("/api/users", user);
   },
