@@ -20,8 +20,9 @@ function Login(props) {
             console.log(data)
           
             if(data.status === 200){
-                props.history.push('/user')
-                // window.location='/user'
+                // props.history.push('/user')
+              
+                 window.location='/user'
             }
             else{
                
@@ -33,6 +34,7 @@ function Login(props) {
             
 
     }
+    
     
     
     return (
