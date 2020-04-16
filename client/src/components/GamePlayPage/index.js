@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css"
+import API from "../../utils/API";
 
 const handSize = 3;
 
@@ -25,9 +26,17 @@ function GamePlay(props) {
     );
 
     const [turn, setTurn] = useState("user");
+    const [userName, setUserName] = useState(props.userName);
 
     useEffect(() => {
         /* Load cards into the hand */
+        API.getOneUser(userName)
+        .then(res => {
+            console.log(res)
+            setUserName(res.data.name)
+        })
+        .catch(err => console.log(err))
+
         var startHand = [];
         for (let i = 0; i < handSize; i++) {
             startHand.push(props.userCards[i]);
@@ -200,7 +209,9 @@ function GamePlay(props) {
                 <div className="row userRow2">
                     <div className="col s12 userHandArea">
                         <div class="userHand  ">
-
+                        <div className="hp">
+                        {userName}
+                        </div>
                             <div className="hp">
                                  Health
                                 <br />

@@ -31,7 +31,7 @@ function App() {
         <Route exact path="/" component={() => <Landing user={user} />} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
-        <Route path="/gameplay" component={() => user.user !== null ? <GamePlay /> : <Login />} />
+        <Route path="/gameplay" component={() => user.user !== null ? <GamePlay userName={user} /> : <Login />} />
         <Route path="/user" component={() => user.user !== null ? <User user={user} /> : <Login />} />
         <Route path="/cards" component={Library} />
         <Route path="/deckbuilder" component={() => user.user !== null ? <DeckBuilder userID={user} /> : <Login />} />

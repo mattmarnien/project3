@@ -6,9 +6,9 @@ var userAvatar = ["avatar2.jpg"];
 
 var opponentCards = [{ _id: 1, name: "CardName1", image: "plasma-bolt.png", attack: 5, HP: 15 }, { _id: 2, name: "CardName2", image: "plasma-bolt.png", attack: 5, HP: 15 }, { _id: 3, name: "CardName3", image: "plasma-bolt.png", attack: 5, HP: 15 }, { _id: 4, name: "CardName4", image: "plasma-bolt.png", attack: 5, HP: 15 }, { _id: 5, name: "CardName5", image: "plasma-bolt.png", attack: 5, HP: 15 }, { _id: 6, name: "CardName6", image: "plasma-bolt.png", attack: 5, HP: 15 }];
 var opponentAvatar = ["avatar3.png"];
-function GamePlay() {
+function GamePlay(props) {
   return (
-    <GamePlayPage userCards={userCards} userAvatar={userAvatar} opponentCards={opponentCards} opponentAvatar={opponentAvatar} />
+    <GamePlayPage userName={props.userName} userCards={userCards} userAvatar={userAvatar} opponentCards={opponentCards} opponentAvatar={opponentAvatar} />
   )
 }
 
