@@ -8,6 +8,7 @@ module.exports = {
         name: { $regex: req.params.name, $options: "i" },
         include: { models: db.Deck }
       })
+      .populate("deck")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
