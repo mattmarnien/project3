@@ -17,7 +17,6 @@ function isLoggedIn(req, res, next) {
 
 router.route("/login")
   .post(passport.authenticate('local'), (req, res) =>{
-    console.log(req)
     if(req){
       res.sendStatus(200)
     }
