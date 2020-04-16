@@ -39,6 +39,7 @@ function App() {
   // }
 
 
+<<<<<<< HEAD
 
   // getUser()
   // console.log('user: ' + user)
@@ -54,6 +55,17 @@ function App() {
   //   else{
   //     let userPage = Login
   //   }
+=======
+const [user, setUser] = useState({user: null});
+
+useEffect( () => {
+  axios.get("/api/checkUser").then(response => {
+if(response.data){
+  setUser(response.data._id)
+}  
+})})
+
+>>>>>>> 6aea9cb8379da8068ded2ac82d745201d8446c63
 
   return (
     <>

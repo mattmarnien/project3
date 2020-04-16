@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-// import Library from "../../components/Library"
+import Library from "../../components/Library"
 import UserPageDeck from "../UserPageDeck";
 import UserPageCards from "../UserPageCards";
 import UserPageStats from "../UserPageStats";
+import API from '../../utils/API'
 
 function UserPage(props) {
   // const [decks, setDecks] = useState([])
