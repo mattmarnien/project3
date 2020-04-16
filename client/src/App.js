@@ -20,44 +20,13 @@ function App() {
 
 const [user, setUser] = useState({user: null});
 
-axios.get("/api/checkUser").then(response => {
+useEffect( () => {
+  axios.get("/api/checkUser").then(response => {
 if(response.data){
   setUser(response.data._id)
 }  
-})
+})})
 
-  
-      // if (response.data.user) {
-      //   console.log('Get User: There is a user saved in the server session: ')
-
-      //   setUser({
-      //     loggedIn: true,
-      //     username: response.data.user.username
-      //   })
-      // } else {
-      //   console.log('Get user: no user');
-      //   setUser({
-      //     loggedIn: false,
-      //     username: null
-      //   })
-      // }
-    
-  
-
-  // getUser()
-// console.log('user: ' + user)
-  
-
-  
-  // const PrivateRoute = ({component: Component, ...rest}) => (<Route {...rest} render={(props) => (
-  //  user !== null ? <Component {...props} /> : <Redirect to='/login' />)} />)
-console.log(user)
-//   if(user !== null){
-// let userPage = User
-//   }
-//   else{
-//     let userPage = Login
-//   }
 
   return (
     <>
