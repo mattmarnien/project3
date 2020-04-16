@@ -37,7 +37,7 @@ if(response.data){
         <Route path="/gameplay" component={()=> user.user !== null ? <GamePlay /> : <Login/>} />
         <Route path="/user" component={()=> user.user !== null ? <User /> : <Login/>}  />
         <Route path="/cards" component={Library} />
-        <Route path="/deckbuilder" component={()=> user.user !== null ? <DeckBuilder /> : <Login/>} />
+        <Route path="/deckbuilder" component={()=> user.user !== null ? <DeckBuilder userID={user}/> : <Login/>} />
         <Route path='/card' render={ () => <GameCard name='Hacker' image='hacker.png' />}/>
         <Footer />
       </Router>
