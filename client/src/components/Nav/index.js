@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom"
 import './nav.css'
 import API from "../../utils/API";
+import { PromiseProvider } from "mongoose";
 
-function Nav() {
+function Nav(props) {
+
+
+
+  const logOut = () => {
+    console.log('clicked')
+    API.userLogout()
+      .then(res => {
+        window.location = '/';
+        console.log(res)
+      })
+      .catch(err => console.log(err))
+
+  }
+
   return (
 
     <nav>
@@ -14,8 +29,7 @@ function Nav() {
           <li><Link to="/user">User</Link></li>
           <li><Link to="/deckbuilder">Deck Builder</Link></li>
           <li><Link to="/cards">Cards</Link></li>
-          <li><Link to="/login">Log in</Link></li>
-          <li onClick={API.userLogout}>Log out</li>
+          <li>{props.user.user !== null ? <Link onClick={logOut}>Log Out</Link> : <Link to="/login">Log In</Link>}</li>
         </ul>
       </div>
     </nav>

@@ -15,55 +15,13 @@ import axios from "axios";
 function App() {
 
   const [user, setUser] = useState({ user: null });
-<<<<<<< HEAD
 
-  axios.get("/api/checkUser").then(response => {
-    if (response.data) {
-      setUser(response.data._id)
-    }
-  })
-
-
-  // if (response.data.user) {
-  //   console.log('Get User: There is a user saved in the server session: ')
-
-  //   setUser({
-  //     loggedIn: true,
-  //     username: response.data.user.username
-  //   })
-  // } else {
-  //   console.log('Get user: no user');
-  //   setUser({
-  //     loggedIn: false,
-  //     username: null
-  //   })
-  // }
-
-
-
-
-  // getUser()
-  // console.log('user: ' + user)
-
-
-
-  // const PrivateRoute = ({component: Component, ...rest}) => (<Route {...rest} render={(props) => (
-  //  user !== null ? <Component {...props} /> : <Redirect to='/login' />)} />)
-  console.log(user)
-  //   if(user !== null){
-  // let userPage = User
-  //   }
-  //   else{
-  //     let userPage = Login
-  //   }
-=======
 useEffect( () => {
   axios.get("/api/checkUser").then(response => {
 if(response.data){
   setUser(response.data._id)
 }  
 })})
->>>>>>> ccbf0666d92444a217d91f08fa83b7a8932cc13f
 
 
 
@@ -72,14 +30,14 @@ if(response.data){
 
 
       <Router>
-        <Nav />
+        <Nav user={user}/>
         <Route exact path="/" component={Landing} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
-        <Route path="/gameplay" component={GamePlay} />
-        <Route path="/user" component={()=> user.user !== null ? <User/> : <Login/>}  />
+        <Route path="/gameplay" component={()=> user.user !== null ? <GamePlay /> : <Login/>} />
+        <Route path="/user" component={()=> user.user !== null ? <User /> : <Login/>}  />
         <Route path="/cards" component={Library} />
-        <Route path="/deckbuilder" component={()=> user.user !== null ? <DeckBuilder/> : <Login/>} />
+        <Route path="/deckbuilder" component={()=> user.user !== null ? <DeckBuilder /> : <Login/>} />
         <Route path='/card' render={ () => <GameCard name='Hacker' image='hacker.png' />}/>
         <Footer />
       </Router>
