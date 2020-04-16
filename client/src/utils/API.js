@@ -3,9 +3,9 @@ import axios from "axios";
 export default {
   // Gets all books
   userLogin: login => {
-    console.log(login)
-    return axios.post("/api/login", login)
-  },
+    return axios.post("/api/login",login)
+  },    
+  
   // Cards
   getCards: () => {
     return axios.get("/api/gameCards/");
@@ -15,6 +15,7 @@ export default {
   getUsers: () => {
     return axios.get("/api/users");
   },
+
   // userLogin: login => {
   //   return axios.get("/api/login", login)
   // },
