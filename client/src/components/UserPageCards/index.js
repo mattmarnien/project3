@@ -17,16 +17,28 @@ function UserPageCards() {
     return (
         <>
             <h4>This will display your cards</h4>
-            {cards.map(card => (
-                <GameCard
-                    key={card._id}
-                    name={card.name}
-                    image={card.image}
-                    attack={card.attack}
-                    HP={card.HP}
-                    cardBody="hello"
-                />
-            ))}
+            <div className="row cardArea">
+
+                {cards.map(card => (
+                    <div className="col s12 m6 l3 cardDiv">
+                        <GameCard
+                            key={card._id}
+                            id={card._id}
+                            data-card={card.name}
+                            name={card.name}
+                            image={card.image}
+                            attack={card.attack}
+                            defense={card.defense}
+                            HP={card.HP}
+                            cardBody={card.cardBody}
+                            cost={card.cost}
+                            class={card.class}
+                        // onClick={addToDeck}
+                        />
+                    </div>
+                ))}
+
+            </div>
         </>
     )
 }
