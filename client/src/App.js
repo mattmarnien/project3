@@ -23,6 +23,7 @@ function App() {
   })
 
 
+<<<<<<< HEAD
   // if (response.data.user) {
   //   console.log('Get User: There is a user saved in the server session: ')
 
@@ -56,6 +57,11 @@ function App() {
   //     let userPage = Login
   //   }
 =======
+=======
+
+
+
+>>>>>>> dcbb787968588f4cc0fa9ba68bd1193875484ecd
 const [user, setUser] = useState({user: null});
 
 useEffect( () => {
@@ -65,7 +71,11 @@ if(response.data){
 }  
 })})
 
+<<<<<<< HEAD
 >>>>>>> 6aea9cb8379da8068ded2ac82d745201d8446c63
+=======
+
+>>>>>>> dcbb787968588f4cc0fa9ba68bd1193875484ecd
 
   return (
     <>
