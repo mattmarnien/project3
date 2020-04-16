@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./style.css"
 
+const handSize = 3;
+
 function GamePlay(props) {
+    
     const [user, setUser] = useState(
         {
-            cards : [],
+            deck : [],
+            hand: [],
+            playedCards: [],
             avatar: "",
             health: 30,
-            playedCards: []
+            
         }
     );
     const [opponent, setOpponent] = useState(
@@ -20,18 +25,35 @@ function GamePlay(props) {
     );
 
     const [turn, setTurn] = useState("user");
+
     useEffect(() => {
-    
+        /* Load cards into the hand */
+        var startHand = [];
+        for(let i = 0; i < handSize;i++){
+            startHand.push(props.userCards[i]);
+        }
+        //console.log("User Hand:" );
+        //console.log(startHand);
+
+        /*Remove hand cards from deck*/
+        var startDeck = [];
+        for(let i = handSize;i <props.userCards.length; i++){
+            startDeck.push(props.userCards[i]);
+        }
+        //console.log("User Deck:" );
+        //console.log(startDeck);
+
         setUser(
             {   ...user,
-                cards: props.userCards,
+                deck: startDeck,
+                hand: startHand,
                 avatar: props.userAvatar
             }
         );
 
         setOpponent(
             {   ...opponent,
-                cards: props.opponentCards,
+                cards: props.opponentCards,            
                 avatar: props.opponentAvatar
             }
         );
@@ -42,45 +64,61 @@ function GamePlay(props) {
     function cardSelect(event) {
         if(turn === "user"){
 
-           /*  var c = user.cards.shift();
-            console.log(user.cards);
-            console.log(c);  */
-            console.log(event.target.id);
-             var card  = user.cards.filter(card => {
-            console.log(card._id);
-            return card._id === parseInt(event.target.id);
-            }
-            );
-             console.log(card);
-        
-              var cardHand = user.cards.filter(card => {
-            return card._id !== parseInt(event.target.id);
-           });
+            //console.log(event.target.id);
 
+            /*User played card*/
+            var card  = user.hand.filter(card => {
+                console.log(card._id);
+                return card._id === parseInt(event.target.id);
+            });
+
+             //console.log(card);
+        
+            /*Remove played card from hand*/ 
+            var cardHand = user.hand.filter(card => {
+              return card._id !== parseInt(event.target.id);
+            });
+
+            var newDeck =[];
+            /*Move a card from the deck to the hand*/
+            if(user.deck.length >= 1){
+                cardHand.push(user.deck[0])
+                newDeck = user.deck.filter((card,index) => {
+                    return index !== 0;
+                });
+            }else {
+                console.log("User out of cards!");
+            }
+            console.log("Card Hand:");
+            console.log(cardHand);
+            console.log("Deck:");
+            console.log(newDeck);
+                    
            setUser({
                 ...user,
                 playedCards :[...user.playedCards,card[0]],
-                cards: cardHand
+                hand: cardHand,
+                deck: newDeck
             }); 
-                 console.log(card[0].attack);
+                 //console.log(card[0].attack);
             setOpponent ({
                 ...opponent,
                 health: opponent.health - card[0].attack
             })
 
-             setTimeout(function(){  opponentMove(opponent.health - card[0].attack,cardHand,[...user.playedCards,card[0]]);}, 3000); 
+             setTimeout(function(){  opponentMove(opponent.health - card[0].attack,newDeck,cardHand,[...user.playedCards,card[0]]);}, 3000); 
              setTurn("opponent");
             /* opponentMove(opponent.health - card[0].attack,cardHand,[...user.playedCards,card[0]]); */
         }
     }
 
-    function opponentMove(newHealth,userCards,userPlayedCards) {
+    function opponentMove(newHealth,userDeck,userHand,userPlayedCards) {
        
         var nextCard = opponent.cards[0];
         var updatedCards = opponent.cards.filter((card,index) => {
             return index !== 0;
         });
-        console.log(updatedCards)
+        //console.log(updatedCards)
         setOpponent({
             ...opponent,
             health: newHealth,
@@ -89,7 +127,8 @@ function GamePlay(props) {
         })
         setUser ({
             ...user,
-            cards: userCards,
+            deck: userDeck,
+            hand: userHand,
             playedCards: userPlayedCards,
             health: user.health - nextCard.attack
         })
@@ -156,7 +195,7 @@ function GamePlay(props) {
                             </div>
                            
                             {user.avatar === "" ? "" :  <img className="userAvatar" src={require("../assets/images/" + user.avatar)} alt="User Avatar"></img>}
-                            {user.cards.map(card => {
+                            {user.hand.map(card => {
                                 return      (                            
                                     <img className="userCard" id={card._id} src={require("../assets/images/" + card.image)} alt={card.name} onClick={cardSelect}></img>
                                 )

@@ -3,11 +3,15 @@ import "./style.css";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import Library from "../../components/Library/index"
+<<<<<<< HEAD
 import UserPageDeck from "../UserPageDeck";
 import UserPageCards from "../UserPageCards";
 import UserPageStats from "../UserPageStats";
+=======
+import API from '../../utils/API'
+>>>>>>> 3e64c97e3929602f5edb71e3aa29aaffa8c19059
 
-function UserPage() {
+function UserPage(props) {
   // const [decks, setDecks] = useState([])
   // const [cards, setCards] = useState([])
 
