@@ -16,11 +16,6 @@ function isLoggedIn(req, res, next) {
 }
 
 router.route("/login")
-<<<<<<< HEAD
-  .post(passport.authenticate('local'), (req,res) =>{
-    console.log("in passport")
-    res.json(req.user)
-=======
   .post(passport.authenticate('local'), (req, res) =>{
     console.log(req)
     if(req){
@@ -29,7 +24,6 @@ router.route("/login")
     else{
       res.send('username or password wrong')
     }
->>>>>>> 3e64c97e3929602f5edb71e3aa29aaffa8c19059
   })
    router.get('/checkUser', isLoggedIn, (req, res) => {
      res.send(req.user)
