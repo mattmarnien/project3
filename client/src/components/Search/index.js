@@ -8,18 +8,21 @@ import GameCard from "../GameCard/index"
 
 
 function Search() {
-    // const [cardSearch, setCardSearch] = useState('');
     const [cards, setCards] = useState([]);
     const [filteredCards, setFilteredCards] = useState([])
-    const [params, setParams] = useState([['All', 'Units', 'Spells'], ['All', '1', '2', '3', '4', '5+'], ['10', '20', '30']]);
-    const labels = ['Type', 'Cost', 'Results'];
+    const [AZ, setAZ] = useState(false)
+    // FOR LATER USE
+    // const [params, setParams] = useState([['All', 'Unit', 'Spell'], ['All', '1', '2', '3', '4', '5+'], ['10', '20', '30']]);
+    // const labels = ['Type', 'Cost', 'Results'];
 
-    // const [results, setResults] = useState("")
+    const [params, setParams] = useState([['100', '75', '50', '20', '10']]);
+    const labels = ['Results'];
+
     const [form, setForm] = useState({
         Search: "",
-        Type: "",
-        Cost: "",
-        Results: 10
+        // Type: "Unit",
+        // Cost: "1",
+        Results: 100
     })
 
     useEffect(() => {
@@ -33,7 +36,11 @@ function Search() {
 
     const handleInputChange = event => {
         const { value, name } = event.target;
-        setForm({ ...form, [name]: value })
+        if (name === 'Results') {
+            setForm({ ...form, [name]: parseInt(value) })
+        } else {
+            setForm({ ...form, [name]: value })
+        }
     }
 
     const handleFormSubmit = event => {
@@ -42,10 +49,24 @@ function Search() {
         console.log(form)
 
         const newCards = cards.filter(card => card.name.toLowerCase().includes(form.Search))
-        newCards.filter(card => card.type.includes(form.Type))
-        newCards.filter(card => card.cost === parseInt(form.Cost))
+
+        // FOR LATER USE
+        // const newCards2 = newCards.filter(card => card.type === form.Type)
+        // const newCards3 = newCards2.filter(card => card.cost === parseInt(form.Cost))
 
         setFilteredCards(newCards)
+    }
+
+    const sortCards = e => {
+        e.preventDefault();
+
+        if (!AZ) {
+            filteredCards.sort((a, b) => a.name.localeCompare(b.name));
+            setAZ(true)
+        } else {
+            filteredCards.sort((a, b) => b.name.localeCompare(a.name));
+            setAZ(false)
+        }
     }
 
     return (
@@ -54,7 +75,7 @@ function Search() {
                 <div className='row'>
                     <Input
                         type='text'
-                        className='center col s10'
+                        className='center col s7'
                         name="Search"
                         onChange={handleInputChange}
 
@@ -62,6 +83,7 @@ function Search() {
                     <Button onClick={handleFormSubmit}
                         classes='col s2'>
                         Search <i className="fas fa-search" /></Button>
+                    <Button onClick={sortCards} classes='col s2' style={{marginLeft: "5px"}}>Sort</Button>
                 </div>
                 <div className='row'>
 
@@ -79,16 +101,28 @@ function Search() {
                 </div>
             </form>
 
-            {filteredCards && filteredCards.slice(0, parseInt(form.Results)).map(card => (
-                <GameCard
-                    key={card._id}
-                    name={card.name}
-                    image={require('../assets/cardImages/' + card.image)}
-                    attack={card.attack}
-                    HP={card.HP}
-                    cardBody="hello"
-                />
-            ))}
+            <div className="row cardArea">
+
+                {filteredCards.slice(0, parseInt(form.Results)).map(card => (
+                    <div className="col s12 m6 l3 cardDiv">
+                        <GameCard
+                            key={card._id}
+                            id={card._id}
+                            data-card={card.name}
+                            name={card.name}
+                            image={card.image}
+                            attack={card.attack}
+                            defense={card.defense}
+                            HP={card.HP}
+                            cardBody={card.cardBody}
+                            cost={card.cost}
+                            class={card.class}
+                        // onClick={addToDeck}
+                        />
+                    </div>
+                ))}
+
+            </div>
         </div>
     )
 }
