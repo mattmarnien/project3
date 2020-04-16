@@ -23,6 +23,9 @@ function Login(props) {
                 // props.history.push('/user')
               
                  window.location='/user'
+                // props.history.push('/user')
+                // window.location.reload();
+                // window.location='/user'
             }
             else{
                

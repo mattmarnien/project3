@@ -17,7 +17,6 @@ function isLoggedIn(req, res, next) {
 
 router.route("/login")
   .post(passport.authenticate('local'), (req, res) =>{
-    console.log(req)
     if(req){
       res.sendStatus(200)
     }
@@ -28,6 +27,30 @@ router.route("/login")
    router.get('/checkUser', isLoggedIn, (req, res) => {
      res.send(req.user)
    })
+
+  //  router.route("/logout")
+  //  .get(function(req, res){
+  //    console.log('logged out')
+  //   req.logout();
+  //   res.redirect('/');
+  // });
+
+
+
+  router.route('/logout')
+  .get(function (req, res){
+    req.session.destroy(function (err) {
+      // window.location('/')
+      res.redirect('/'); //Inside a callback… bulletproof!
+    });
+  });
+
+
+
+
+
+
+
 
 
 // gameCard routes
