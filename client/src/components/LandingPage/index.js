@@ -9,16 +9,13 @@ function LandingPage() {
 
   return (
     <>
-    <div className="titleDiv">
-      <img src={Singularity} alt="Singularity icon" className="icon"/>
-      <h2 className="homeTitle">Singularity</h2>
+      <div className="titleDiv">
+        <img src={Singularity} alt="Singularity icon" className="icon" />
+        <h2 className="homeTitle">Singularity</h2>
       </div>
       <h5><Link to="/signup">Sign up</Link> or <Link to={"/login"}>log in</Link> to get started.</h5>
       <div className="home">
-        <Link to={"/gameplay"}><Button classes='waves-effect waves-light center btn-large homeBtn'>Play Now</Button></Link>
         <Link to={"#"}><Button classes='waves-effect waves-light center btn-large homeBtn'>Rules</Button></Link>
-
-        
       </div>
     </>
   );

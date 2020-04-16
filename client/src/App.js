@@ -23,7 +23,6 @@ function App() {
   })
 
 
-<<<<<<< HEAD
   // if (response.data.user) {
   //   console.log('Get User: There is a user saved in the server session: ')
 
@@ -40,7 +39,7 @@ function App() {
   // }
 
 
-<<<<<<< HEAD
+
 
   // getUser()
   // console.log('user: ' + user)
@@ -56,26 +55,8 @@ function App() {
   //   else{
   //     let userPage = Login
   //   }
-=======
-=======
 
 
-
->>>>>>> dcbb787968588f4cc0fa9ba68bd1193875484ecd
-const [user, setUser] = useState({user: null});
-
-useEffect( () => {
-  axios.get("/api/checkUser").then(response => {
-if(response.data){
-  setUser(response.data._id)
-}  
-})})
-
-<<<<<<< HEAD
->>>>>>> 6aea9cb8379da8068ded2ac82d745201d8446c63
-=======
-
->>>>>>> dcbb787968588f4cc0fa9ba68bd1193875484ecd
 
   return (
     <>
@@ -83,7 +64,7 @@ if(response.data){
 
       <Router>
         <Nav />
-        <Route path="/" component={Landing} />
+        <Route exact path="/" component={Landing} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/gameplay" component={() => user.user !== null ? <GamePlay /> : <Login />} />
