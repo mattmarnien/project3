@@ -21,7 +21,7 @@ function Login(props) {
           
             if(data.status === 200){
                 props.history.push('/user')
-                location.reload();
+                window.reload();
                 // window.location='/user'
             }
             else{
