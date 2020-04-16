@@ -29,22 +29,21 @@ function GameCard(props) {
     //     </div>
     //     </div>
     // </>
-    <div className='container'>
-      <div className='row'>
-        <div className='gameCard' onClick={props.onClick} data-card={props.name}>
-          <span className='center cardName' data-card={props.name}>{props.name}</span>
-          <img className='cardImage center' data-card={props.name} src={require('../assets/cardImages/' + props.image)} />
-          <br />
-          <div className='cardText center' data-card={props.name}>
-            Cost: {props.cost}
-            HP: {props.HP}
-            Defense: 3
-            Flash
-        {props.cardBody}
-          </div>
-        </div>
+
+    <div className='gameCard' onClick={props.onClick} data-card={props.name} data-id={props.id}>
+      <span className='center cardName' data-card={props.name} data-id={props.id}>{props.name}</span>
+      <img className='cardImage center' data-card={props.name} data-id={props.id} src={require('../assets/cardImages/' + props.image)} />
+      <br />
+      <div className='cardText center' data-card={props.name} data-id={props.id}>
+        {props.cost ? "Cost:" + props.cost + " " : ""}
+        {props.class ? "Class:" + props.class + " " : ""}
+        {props.HP ? "HP:" + props.HP + " " : ""}
+        {props.attack ? "Attack:" + props.attack + " " : ""}
+        {props.defense ? "Defense:" + props.defense + " " : ""}
+        {props.cardBody ? props.cardBody : ""}
       </div>
     </div>
+
   );
 }
 
