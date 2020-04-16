@@ -5,6 +5,10 @@ export default {
   userLogin: login => {
     return axios.post("/api/login",login)
   },    
+
+  userLogout: () => {
+    return axios.get("/api/logout")
+  },
   
   // Cards
   getCards: () => {

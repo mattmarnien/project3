@@ -29,6 +29,30 @@ router.route("/login")
      res.send(req.user)
    })
 
+  //  router.route("/logout")
+  //  .get(function(req, res){
+  //    console.log('logged out')
+  //   req.logout();
+  //   res.redirect('/');
+  // });
+
+
+
+  router.route('/logout')
+  .get(function (req, res){
+    req.session.destroy(function (err) {
+      // window.location('/')
+      res.redirect('/'); //Inside a callback… bulletproof!
+    });
+  });
+
+
+
+
+
+
+
+
 
 // gameCard routes
 router.route("/gameCards/:id")
