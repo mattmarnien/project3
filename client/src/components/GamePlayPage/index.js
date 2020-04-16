@@ -174,7 +174,14 @@ function GamePlay(props) {
                         <div class="opponentPlayedCards ">
                             {opponent.playedCards.map(card => {
                                 return (
-                                    <img className="opponentCard" src={require("../assets/images/" + card.image)} alt={card.name}></img>
+                                    <div>
+                                        <div className="opponentPlayedCardStats">
+                                            Attack: {card.attack}
+                                            <br/>
+                                            HP: {card.HP}
+                                        </div>
+                                        <img className="opponentCard" src={require("../assets/images/" + card.image)} alt={card.name}></img>
+                                    </div>
                                 )
                             })}
                         </div>
@@ -184,12 +191,19 @@ function GamePlay(props) {
                     <div className="col s2 resourceArea">
 
                     </div>
-                    <div className="col s10 userPlayedCardsArea ">
+                    <div className="col s10 userPlayedCardsArea">
                         <div class="userPlayedCards ">
                             {user.playedCards.map(card => {
                                 return (
-                                    <img className="playedCard" id={card._id} src={require("../assets/images/" + card.image)} alt={card.name} onClick={cardSelect}></img>
-                                )
+                                    <div>
+                                        <img className="playedCard" id={card._id} src={require("../assets/images/" + card.image)} alt={card.name} onClick={cardSelect}></img>
+                                        <div className="userPlayedCardStats">
+                                            Attack: {card.attack}
+                                            <br/>
+                                            HP: {card.HP}
+                                        </div>
+                                    </div>
+                                    )
                             })}
                         </div>
                     </div>
@@ -208,9 +222,9 @@ function GamePlay(props) {
                             {user.hand.map(card => {
 
                                 return (
-                                    <div class="tooltip" >
+                                    <div /* class="tooltip" */ >
                                         <img className="userCard " id={card._id} src={require("../assets/images/" + card.image)} alt={card.name} onClick={cardSelect}></img>
-                                        <div class="tooltiptext">
+                                        <div  class="userHandStats"/*"tooltiptext" */>
                                             Attack: {card.attack}
                                             <br/>
                                             HP: {card.HP}
