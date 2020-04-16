@@ -3,7 +3,13 @@ import "./style.css";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import Library from "../../components/Library/index"
+<<<<<<< HEAD
+import UserPageDeck from "../UserPageDeck";
+import UserPageCards from "../UserPageCards";
+import UserPageStats from "../UserPageStats";
+=======
 import API from '../../utils/API'
+>>>>>>> 3e64c97e3929602f5edb71e3aa29aaffa8c19059
 
 function UserPage(props) {
   // const [decks, setDecks] = useState([])
@@ -31,9 +37,17 @@ function UserPage(props) {
         </div>
       </nav>
 
-      <div id="decks" className="col s12">Decks</div>
-      <div id="cards" className="col s12">Cards</div>
-      <div id="stats" className="col s12">Stats</div>
+      <div id="decks" className="col s12">
+        <UserPageDeck />
+      </div>
+      
+      <div id="cards" className="col s12">
+        <UserPageCards />
+      </div>
+      
+      <div id="stats" className="col s12">
+        <UserPageStats />
+      </div>
     </>
   );
 }
