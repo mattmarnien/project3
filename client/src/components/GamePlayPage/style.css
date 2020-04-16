@@ -117,7 +117,19 @@
     width: 10vh;
     margin-right: 5px;
 }
-
+.handCardImage {
+    height: 16vh;
+    width: 12vh;
+    margin-right: 5px;
+    font-size: 1vh;
+}
+.card-content {
+    margin: 0;
+    padding: 0;
+}
+.card-title p{
+    font-size:5px;
+}
 .userAvatar {
     height: 20vh;
     margin-right: 5px;
@@ -149,3 +161,43 @@
     margin-right: 5vw;
     text-align: center;
 }
+
+.playedCard {
+    height: 13vh;
+    width: 10vh;
+    margin-right: 5px;
+   
+    animation-name: example;
+    animation-duration: 2s;  
+    animation-fill-mode: forwards;
+  }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  @keyframes example {
+    from {height: 0px; width: 0px;}
+    to {height: 13vh;; width: 10vh;}
+  }
