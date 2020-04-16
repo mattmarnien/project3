@@ -17,7 +17,7 @@ function UserPageDeck() {
         <>
             <h4>This will display your decks</h4>
             {decks.map(deck => (
-                <Deck 
+                <Deck
 
                 />
             ))}

@@ -1,10 +1,9 @@
 import React from "react";
 import LandingPage from "../components/LandingPage/index"
 
-function Landing() {
-
+function Landing(props) {
     return (
-        <LandingPage />
+        <LandingPage user={props.user}/>
   );
 }
 

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css"
 
-const styles = {
-
-}
 const handSize = 3;
 
 function GamePlay(props) {
@@ -62,8 +59,6 @@ function GamePlay(props) {
                 avatar: props.opponentAvatar
             }
         );
-
-
     }, []);
 
     function cardSelect(event) {
@@ -79,8 +74,6 @@ function GamePlay(props) {
                 // console.log(card._id);
                 return card._id === parseInt(event.target.id);
             });
-
-            //console.log(card);
 
             /*Remove played card from hand*/
             var cardHand = user.hand.filter(card => {
@@ -118,7 +111,6 @@ function GamePlay(props) {
             setTimeout(function () { opponentMove(opponent.health - card[0].attack, newDeck, cardHand, [...user.playedCards, card[0]]); }, 3000);
             setTurn("opponent");
             /* opponentMove(opponent.health - card[0].attack,cardHand,[...user.playedCards,card[0]]); */
-
         }
     }
 
@@ -143,12 +135,9 @@ function GamePlay(props) {
             health: user.health - nextCard.attack
         })
         setTurn("user");
-
     }
 
-
     return (
-
         <>
             <div className="container  gamearea">
                 <div className="row opponentRow1 ">
@@ -236,10 +225,8 @@ function GamePlay(props) {
                     </div>
                 </div>
             </div>
-
         </>
     )
-
 }
 
 export default GamePlay;

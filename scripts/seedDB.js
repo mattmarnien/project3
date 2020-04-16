@@ -503,9 +503,7 @@ const gameCardSeed = [
     cost: 4,
     class: 'Tech'
     // equipment cards cost 1 less, cost 4
-
   },
-
 ];
 
 const userSeed = [
@@ -541,7 +539,6 @@ db.User
     console.error(err);
     process.exit(1);
   });
-
 
 db.gameCard
   .remove({})

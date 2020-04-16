@@ -12,7 +12,6 @@ function UserPage(props) {
   // const [decks, setDecks] = useState([])
   // const [cards, setCards] = useState([])
 
-
   useEffect(() => {
     var el = document.querySelectorAll(".tabs");
     var instance = M.Tabs.init(el, {});
@@ -33,15 +32,12 @@ function UserPage(props) {
           </ul>
         </div>
       </nav>
-
       <div id="decks" className="col s12">
         <UserPageDeck />
       </div>
-      
       <div id="cards" className="col s12">
         <UserPageCards />
       </div>
-      
       <div id="stats" className="col s12">
         <UserPageStats />
       </div>
