@@ -17,10 +17,16 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   buildDeck: function (req, res) {
-    console.log(req.body)
     db.Deck
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .create(req.body.newDeck)
+      .then(({_id}) => {
+        db.User.findOneAndUpdate({_id: req.body.userID}, {$push: {deck: _id}}, {new: true}).then(dbModel => {
+          res.json(dbModel);
+        }).catch(err => {
+          console.log(err);
+          res.status(422).json(err);
+        })
+      })
       .catch(err => res.status(422).json(err));
   }
 

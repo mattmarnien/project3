@@ -5,7 +5,7 @@ import "./deckbuilder.css";
 import API from "../../utils/API"
 import GameCard from "../GameCard/index"
 
-function DeckBuilderPage({ handleFormSubmit }) {
+function DeckBuilderPage({ handleFormSubmit, userID }) {
     const [cards, setCards] = useState([]);
     const [deckCards, setDeckCards] = useState([])
     const [cardIds, setCardIds] = useState([])
@@ -50,8 +50,12 @@ function DeckBuilderPage({ handleFormSubmit }) {
             numberOfCards: cardIds.length,
             card: cardIds
         }
-        console.log(newDeck)
-        API.buildDeck(newDeck)
+        const userDeck = {
+            newDeck: newDeck,
+            userID: userID
+        }
+        //console.log(newDeck)
+        API.buildDeck(userDeck)
             .then(res => {
                 console.log(res)
                 setDeckCards([])
