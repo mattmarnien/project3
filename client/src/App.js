@@ -67,11 +67,13 @@ function App() {
         <Route exact path="/" component={Landing} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
-        <Route path="/gameplay" component={() => user.user !== null ? <GamePlay /> : <Login />} />
-        <Route path="/user" component={() => user.user !== null ? <User /> : <Login />} />
+
+        <Route path="/gameplay" component={GamePlay} />
+        <Route path="/user" component={()=> loggedUser.user !== null ? <User/> : <Login/>}  />
         <Route path="/cards" component={Library} />
-        <Route path="/deckbuilder" component={() => user.user !== null ? <DeckBuilder /> : <Login />} />
-        <Route path='/card' render={() => <GameCard name='Hacker' image='hacker.png' />} />
+        <Route path="/deckbuilder" component={()=> loggedUser.user !== null ? <DeckBuilder/> : <Login/>} />
+        <Route path='/card' render={ () => <GameCard name='Hacker' image='hacker.png' />}/>
+
         <Footer />
       </Router>
 
