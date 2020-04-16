@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./login.css"
 import Input from '../Input'
 import Button from '../Button'
 import API from '../../utils/API'
 
-function Login() {
+function Login(props) {
     const [loginForm, setLoginForm] = useState([]);
     const [alertInfo, setAlertInfo] = useState({value: ''});
     
@@ -18,16 +18,22 @@ function Login() {
         console.log(loginForm)
         API.userLogin(loginForm).then(data => {
             console.log(data)
+          
             if(data.status === 200){
-                window.location='/user'
+                props.history.push('/user')
+                // window.location='/user'
             }
             else{
+               
                 setAlertInfo({value: 'Incorrect username or password'})
             }
-        }
+        
+        })
+        
+            
 
-        )
     }
+    
     
     return (
         <>
@@ -53,4 +59,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default withRouter(Login);

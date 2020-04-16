@@ -35,11 +35,11 @@ function GameCard(props) {
       <img className='cardImage center' data-card={props.name} data-id={props.id} src={require('../assets/cardImages/' + props.image)} />
       <br />
       <div className='cardText center' data-card={props.name} data-id={props.id}>
-        {props.cost ? "Cost:" + props.cost + " " : ""}
-        {props.class ? "Class:" + props.class + " " : ""}
-        {props.HP ? "HP:" + props.HP + " " : ""}
-        {props.attack ? "Attack:" + props.attack + " " : ""}
-        {props.defense ? "Defense:" + props.defense + " " : ""}
+        {props.cost ? "Cost: " + props.cost + "\n" : ""}
+        {props.class ? "Class: " + props.class + "\n" : ""}
+        {props.HP ? "HP: " + props.HP + "\n" : ""}
+        {props.attack ? "Attack: " + props.attack + "\n" : ""}
+        {props.defense ? "Defense: " + props.defense + "\n" : ""}
         {props.cardBody ? props.cardBody : ""}
       </div>
     </div>

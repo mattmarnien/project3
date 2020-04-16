@@ -6,18 +6,35 @@ const UserController = require("../../controllers/UserController");
 const DeckController = require("../../controllers/deckController");
 
 
-// Login route
+// Auth routes
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    return next();
+  }
+}
+
 router.route("/login")
-  .post(passport.authenticate('local'), (req,res) =>{
-    res.json(req.user)
+  .post(passport.authenticate('local'), (req, res) =>{
+    console.log(req)
+    if(req){
+      res.sendStatus(200)
+    }
+    else{
+      res.send('username or password wrong')
+    }
   })
+   router.get('/checkUser', isLoggedIn, (req, res) => {
+     res.send(req.user)
+   })
 
 
 // gameCard routes
 router.route("/gameCards/:id")
   .get(gameCardController.findById)
 
-router.route("/gameCards/")
+router.route("/gameCards")
   .get(gameCardController.findCards)
 
 
@@ -27,6 +44,9 @@ router.route("/users")
   .post(UserController.addUser)
 
 router.route("/users/:id")
+  .get(UserController.findById)
+
+router.route("/user")
   .get(UserController.findById)
 
 
