@@ -26,11 +26,11 @@ function GamePlay(props) {
     );
 
     const [turn, setTurn] = useState("user");
-    const [userName, setUserName] = useState(props.userName);
+    const [userName, setUserName] = useState("");
 
     useEffect(() => {
         /* Load cards into the hand */
-        API.getOneUser(userName)
+        API.getOneUser(props.userName)
         .then(res => {
             console.log(res)
             setUserName(res.data.name)

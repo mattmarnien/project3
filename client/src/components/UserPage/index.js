@@ -11,10 +11,10 @@ import API from '../../utils/API'
 function UserPage(props) {
   // const [decks, setDecks] = useState([])
   // const [cards, setCards] = useState([])
-  const [user, setUser] = useState(props.user)
+  const [user, setUser] = useState("")
 
   useEffect(() => {
-    API.getOneUser(user)
+    API.getOneUser(props.user)
     .then(res => {
       setUser(res.data.name)
     })

@@ -6,7 +6,7 @@ import API from "../../utils/API"
 import GameCard from "../GameCard/index"
 
 function DeckBuilderPage({ handleFormSubmit, userID }) {
-    const [user, setUser] = useState(userID)
+    const [user, setUser] = useState("")
     const [cards, setCards] = useState([]);
     const [deckCards, setDeckCards] = useState([])
     const [cardIds, setCardIds] = useState([])
@@ -44,11 +44,11 @@ function DeckBuilderPage({ handleFormSubmit, userID }) {
     }
 
     const buildNewDeck = () => {
-        const cardMessage = document.getElementById("cardMessage")
-        if (deckCards.length < 20) return alert(cardMessage.innerHTML)
-        let answer = window.confirm("Are you sure?")
-        if (!answer) return;
         let deckName = window.prompt("What do you want to call this deck?")
+
+        if (!deckName) {
+            return alert("You must gave your deck a name.")
+        }
 
         const newDeck = {
             name: deckName,
