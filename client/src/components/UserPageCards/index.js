@@ -20,7 +20,7 @@ function UserPageCards() {
             <div className="row cardArea">
 
                 {cards.map(card => (
-                    <div className="col s12 m6 l3 cardDiv">
+                    <div className="col s6 m4 l2 cardDiv">
                         <GameCard
                             key={card._id}
                             id={card._id}
