@@ -15,6 +15,7 @@ import axios from "axios";
 function App() {
 
   const [user, setUser] = useState({ user: null });
+<<<<<<< HEAD
 
   axios.get("/api/checkUser").then(response => {
     if (response.data) {
@@ -55,6 +56,14 @@ function App() {
   //   else{
   //     let userPage = Login
   //   }
+=======
+useEffect( () => {
+  axios.get("/api/checkUser").then(response => {
+if(response.data){
+  setUser(response.data._id)
+}  
+})})
+>>>>>>> ccbf0666d92444a217d91f08fa83b7a8932cc13f
 
 
 
@@ -68,9 +77,9 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/gameplay" component={GamePlay} />
-        <Route path="/user" component={()=> loggedUser.user !== null ? <User/> : <Login/>}  />
+        <Route path="/user" component={()=> user.user !== null ? <User/> : <Login/>}  />
         <Route path="/cards" component={Library} />
-        <Route path="/deckbuilder" component={()=> loggedUser.user !== null ? <DeckBuilder/> : <Login/>} />
+        <Route path="/deckbuilder" component={()=> user.user !== null ? <DeckBuilder/> : <Login/>} />
         <Route path='/card' render={ () => <GameCard name='Hacker' image='hacker.png' />}/>
         <Footer />
       </Router>
