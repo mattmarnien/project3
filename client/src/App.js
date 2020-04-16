@@ -30,7 +30,7 @@ if(response.data){
 
       <Router>
         <Nav />
-        <Route path="/" component={Landing} />
+        <Route exact path="/" component={Landing} />
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/gameplay" component={GamePlay} />
