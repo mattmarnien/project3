@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import './nav.css'
+import API from "../../utils/API";
 
 function Nav() {
   return (
@@ -14,6 +15,7 @@ function Nav() {
           <li><Link to="/deckbuilder">Deck Builder</Link></li>
           <li><Link to="/cards">Cards</Link></li>
           <li><Link to="/login">Log in</Link></li>
+          {/* <li onClick={API.userLogout}>Log out</li> */}
         </ul>
       </div>
     </nav>
