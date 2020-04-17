@@ -5,9 +5,6 @@ function Deck(props) {
   return (
 
     <>
-      <p>{props.id}</p>
-      <p>{props.name}</p>
-      <p>{props.deck}</p>
     </>
 
     // <div className='paper' onClick={props.onClick} data-card={props.name} data-id={props.id}>

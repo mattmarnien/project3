@@ -5,12 +5,12 @@ import Library from './components/Library'
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
-import GameCard from "./components/GameCard";
 import User from "./pages/User";
 import DeckBuilder from "./pages/DeckBuilder"
 import GamePlay from "./pages/GamePlay"
 import Landing from "./pages/Landing"
 import axios from "axios";
+import Rules from './pages/Rules'
 
 function App() {
 
@@ -35,7 +35,7 @@ function App() {
         <Route path="/user" component={() => user.user !== null ? <User user={user} /> : <Login />} />
         <Route path="/cards" component={Library} />
         <Route path="/deckbuilder" component={() => user.user !== null ? <DeckBuilder userID={user} /> : <Login />} />
-        <Route path='/card' render={() => <GameCard name='Hacker' image='hacker.png' />} />
+        <Route path='/rules' component={Rules}/>
         <Footer />
       </Router>
     </>

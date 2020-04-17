@@ -17,7 +17,7 @@ function LandingPage(props) {
           <h5><Link to='/gameplay'><Button classes='waves-effect waves-light center btn-large homeBtn'>Play Now</Button></Link></h5>
           :
           <h5><Link to="/signup">Sign up</Link> or <Link to={"/login"}>log in</Link> to get started.</h5>}
-        <Link to={"#"} className="rulesBtn"><Button classes='waves-effect waves-light center btn-large homeBtn'>Rules</Button></Link>
+        <Link to={"/rules"} className="rulesBtn"><Button classes='waves-effect waves-light center btn-large homeBtn'>Rules</Button></Link>
       </div>
     </>
   );
