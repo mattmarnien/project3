@@ -7,6 +7,10 @@ import API from "../../utils/API"
 
 function Signup(props) {
     const [signupForm, setSignupForm] = useState([]);
+    const [alertMessage, setAlertMessage] = useState({message: ''})
+   
+
+
 
     const handleInputChange = event => {
         const { name, value } = event.target;
@@ -14,27 +18,46 @@ function Signup(props) {
     }
     const handleFormSubmit = event => {
         event.preventDefault();
-        API.addUser(signupForm).then(data => {
-            console.log(data)
+        let valid = true;
+        if ((/.+@.+\..+/.test(signupForm.email)) === false) {
+            valid = false;
+            setAlertMessage({message: 'Please enter a valid email adress'})
+            return;
+        }
+        if (signupForm.password !== signupForm.confirmPassword) {
+            valid = false;
+            setAlertMessage({message: "Passwords do not match"})
+            return;
+        }
 
-            if (data.status === 200) {
-                 props.history.push('/user')
 
-              
-                // props.history.push('/user')
-                 window.location.reload();
-                // window.location='/user'
-            }
-           
-        })
+        if (valid === true) {
+
+
+            API.addUser(signupForm).then(data => {
+                console.log(data)
+
+                if (data.status === 200) {
+                    props.history.push('/user')
+
+
+                    // props.history.push('/user')
+                    window.location.reload();
+                    // window.location='/user'
+                }
+
+            })
+        }
     }
-    
+
 
     return (
         <>
             <div className='container'>
                 <h3 className='center'>Create an Account</h3>
-                <div className='center' id='signupAlertDiv'></div>
+                <div className='center' id='signupAlertDiv'>
+                    <h5 value={alertMessage.message}>{alertMessage.message}</h5>
+                </div>
                 <div className="row">
                     <form className="col s12" id="signUpForm">
                         <Input className="input-field singularityInput col s6"
