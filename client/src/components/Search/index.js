@@ -6,7 +6,6 @@ import DropdownMenu from '../DropdownMenu';
 import API from "../../utils/API"
 import GameCard from "../GameCard/index"
 
-
 function Search() {
     const [cards, setCards] = useState([]);
     const [filteredCards, setFilteredCards] = useState([])
@@ -83,10 +82,9 @@ function Search() {
                     <Button onClick={handleFormSubmit}
                         classes='col s2'>
                         Search <i className="fas fa-search" /></Button>
-                    <Button onClick={sortCards} classes='col s2' style={{marginLeft: "5px"}}>Sort</Button>
+                    <Button onClick={sortCards} classes='col s2' style={{ marginLeft: "5px" }}>Sort</Button>
                 </div>
                 <div className='row'>
-
                     {params.map((arr, index) => (
                         <DropdownMenu
                             key={index}
@@ -100,9 +98,7 @@ function Search() {
 
                 </div>
             </form>
-
             <div className="row cardArea">
-
                 {filteredCards.slice(0, parseInt(form.Results)).map(card => (
                     <div className="col s12 m6 l3 cardDiv">
                         <GameCard
