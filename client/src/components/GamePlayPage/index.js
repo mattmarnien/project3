@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css"
+import API from "../../utils/API";
 
-const styles = {
-
-}
 const handSize = 3;
 
 function GamePlay(props) {
@@ -28,9 +26,17 @@ function GamePlay(props) {
     );
 
     const [turn, setTurn] = useState("user");
+    const [userName, setUserName] = useState("");
 
     useEffect(() => {
         /* Load cards into the hand */
+        API.getOneUser(props.userName)
+        .then(res => {
+            console.log(res)
+            setUserName(res.data.name)
+        })
+        .catch(err => console.log(err))
+
         var startHand = [];
         for (let i = 0; i < handSize; i++) {
             startHand.push(props.userCards[i]);
@@ -62,8 +68,6 @@ function GamePlay(props) {
                 avatar: props.opponentAvatar
             }
         );
-
-
     }, []);
 
     function cardSelect(event) {
@@ -79,8 +83,6 @@ function GamePlay(props) {
                 // console.log(card._id);
                 return card._id === parseInt(event.target.id);
             });
-
-            //console.log(card);
 
             /*Remove played card from hand*/
             var cardHand = user.hand.filter(card => {
@@ -118,7 +120,6 @@ function GamePlay(props) {
             setTimeout(function () { opponentMove(opponent.health - card[0].attack, newDeck, cardHand, [...user.playedCards, card[0]]); }, 3000);
             setTurn("opponent");
             /* opponentMove(opponent.health - card[0].attack,cardHand,[...user.playedCards,card[0]]); */
-
         }
     }
 
@@ -143,12 +144,9 @@ function GamePlay(props) {
             health: user.health - nextCard.attack
         })
         setTurn("user");
-
     }
 
-
     return (
-
         <>
             <div className="container  gamearea">
                 <div className="row opponentRow1 ">
@@ -211,7 +209,9 @@ function GamePlay(props) {
                 <div className="row userRow2">
                     <div className="col s12 userHandArea">
                         <div class="userHand  ">
-
+                        <div className="hp">
+                        {userName}
+                        </div>
                             <div className="hp">
                                  Health
                                 <br />
@@ -236,10 +236,8 @@ function GamePlay(props) {
                     </div>
                 </div>
             </div>
-
         </>
     )
-
 }
 
 export default GamePlay;
