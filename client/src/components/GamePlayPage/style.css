@@ -128,14 +128,14 @@
 
 .userAvatar {
     height: 20vh;
-    margin-right: 5px;
+    margin-right: 15px;
     border-radius: 50%;
     align-self: flex-end;
 }
 
 .opponentAvatar {
     height: 20vh;
-    margin-right: 5px;
+    margin-right: 15px;
     border-radius: 50%;
     align-self: flex-start;
 }
