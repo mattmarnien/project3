@@ -245,7 +245,7 @@ function GamePlay(props) {
                                             <div className="opponentPlayedCardStats">
                                                 Cost: {card.cost}
                                             </div>
-                                            <img className="opponentCard" src={require("../assets/images/" + card.image)} alt={card.name}></img>
+                                            <img className="opponentCard" src={require("../assets/cardImages/" + card.image)} alt={card.name}></img>
                                         </div>
                                     )
                                 }
