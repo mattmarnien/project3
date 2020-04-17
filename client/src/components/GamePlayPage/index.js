@@ -28,7 +28,34 @@ function GamePlay(props) {
     const [turn, setTurn] = useState("user");
     const [userName, setUserName] = useState("");
 
+    function getGuid(){
+        var guid = "";
+        const seed  = "klmnopqrstuvwxyz0123456789NOPQRSTUVWXYZabcdefghij0123456789ABCDEFGHIJKLM";
+        const size = 72;
+        let nextChar ="";
+
+        for(let i = 0;i <20;i++){
+           nextChar = seed.charAt(Math.floor(Math.random() * 72));
+           guid = guid + nextChar;
+           //console.log(guid);
+        }
+        return guid;
+    }
+
+    function reloadUserDeck() {
+        console.log("in reload user deck");
+        var newDeck = props.userCards.map(card => card);
+
+        setUser(
+            {
+                ...user,
+                deck: newDeck,
+            }
+        );
+    }
+
     useEffect(() => {
+ 
         /* Load cards into the hand */
         API.getOneUser(props.userName)
         .then(res => {
@@ -41,16 +68,12 @@ function GamePlay(props) {
         for (let i = 0; i < handSize; i++) {
             startHand.push(props.userCards[i]);
         }
-        //console.log("User Hand:" );
-        //console.log(startHand);
 
         /*Remove hand cards from deck*/
         var startDeck = [];
         for (let i = handSize; i < props.userCards.length; i++) {
-            startDeck.push(props.userCards[i]);
+            startDeck.push(props.userCards[i]);    
         }
-        //console.log("User Deck:" );
-        //console.log(startDeck);
 
         setUser(
             {
@@ -73,10 +96,7 @@ function GamePlay(props) {
     function cardSelect(event) {
         if (turn === "user") {
 
-            //console.log(event.target.id);
             console.log(event.target);
-
-            /* console.log(event.target); */
 
             /*User played card*/
             var card = user.hand.filter(card => {
@@ -84,22 +104,37 @@ function GamePlay(props) {
                 return card._id === parseInt(event.target.id);
             });
 
-            /*Remove played card from hand*/
+             /*Remove played card from hand, if its a duplicate only remove the first one*/
+            var found = false;
             var cardHand = user.hand.filter(card => {
-                return card._id !== parseInt(event.target.id);
+                if(!found){
+                    if(card._id === parseInt(event.target.id)){
+                        found = true;
+                        return false;
+                    }else {
+                        return true;
+                    }
+                }else {
+                    return true;
+                }
             });
+
+          
 
             var newDeck = [];
             /*Move a card from the deck to the hand*/
-            if (user.deck.length >= 1) {
-                cardHand.push(user.deck[0])
+            if (user.deck.length > 1) {
+                cardHand.push(user.deck[0]);
                 newDeck = user.deck.filter((card, index) => {
                     return index !== 0;
                 });
-            } else {
-                console.log("User out of cards!");
+            } 
+            if(user.deck.length === 1){
+                cardHand.push(user.deck[0]);
+                newDeck = props.userCards;
             }
-            var ids = newDeck.map(card => card._id)
+            
+
             console.log("Card Hand:");
             console.log(cardHand);
             console.log("Deck:");
@@ -111,7 +146,7 @@ function GamePlay(props) {
                 hand: cardHand,
                 deck: newDeck
             });
-            //console.log(card[0].attack);
+
             setOpponent({
                 ...opponent,
                 health: opponent.health - card[0].attack
@@ -119,7 +154,8 @@ function GamePlay(props) {
 
             setTimeout(function () { opponentMove(opponent.health - card[0].attack, newDeck, cardHand, [...user.playedCards, card[0]]); }, 3000);
             setTurn("opponent");
-            /* opponentMove(opponent.health - card[0].attack,cardHand,[...user.playedCards,card[0]]); */
+        
+
         }
     }
 
@@ -129,7 +165,7 @@ function GamePlay(props) {
         var updatedCards = opponent.cards.filter((card, index) => {
             return index !== 0;
         });
-        //console.log(updatedCards)
+
         setOpponent({
             ...opponent,
             health: newHealth,
@@ -222,9 +258,9 @@ function GamePlay(props) {
                             {user.hand.map(card => {
 
                                 return (
-                                    <div /* class="tooltip" */ >
+                                    <div >
                                         <img className="userCard " id={card._id} src={require("../assets/images/" + card.image)} alt={card.name} onClick={cardSelect}></img>
-                                        <div  class="userHandStats"/*"tooltiptext" */>
+                                        <div  class="userHandStats">
                                             Attack: {card.attack}
                                             <br/>
                                             HP: {card.HP}
