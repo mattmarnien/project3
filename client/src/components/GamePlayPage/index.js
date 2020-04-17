@@ -5,7 +5,7 @@ import API from "../../utils/API";
 const handSize = 3;
 
 function GamePlay(props) {
-
+    const [userDeck, setUserDeck] = useState([]);
     const [user, setUser] = useState(
         {
             deck: [],
@@ -28,41 +28,28 @@ function GamePlay(props) {
     const [turn, setTurn] = useState("user");
     const [userName, setUserName] = useState("");
 
-    function getGuid(){
-        var guid = "";
-        const seed  = "klmnopqrstuvwxyz0123456789NOPQRSTUVWXYZabcdefghij0123456789ABCDEFGHIJKLM";
-        const size = 72;
-        let nextChar ="";
-
-        for(let i = 0;i <20;i++){
-           nextChar = seed.charAt(Math.floor(Math.random() * 72));
-           guid = guid + nextChar;
-           //console.log(guid);
-        }
-        return guid;
-    }
-
-    function reloadUserDeck() {
-        console.log("in reload user deck");
-        var newDeck = props.userCards.map(card => card);
-
-        setUser(
-            {
-                ...user,
-                deck: newDeck,
-            }
-        );
-    }
-
     useEffect(() => {
- 
         /* Load cards into the hand */
+        /*   API.getOneUser(props.userName)
+          .then(res => {
+              console.log(res);
+              console.log(res.data);
+              setUserName(res.data.name)
+          })
+          .catch(err => console.log(err)) */
         API.getOneUser(props.userName)
-        .then(res => {
-            console.log(res)
-            setUserName(res.data.name)
-        })
-        .catch(err => console.log(err))
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                setUserName(res.data.name)
+                API.getOneDeck(res.data.deck[0]._id)
+                    .then(res => {
+                        console.log(res);
+                        setUserDeck(res.data.card);
+                    })
+                    .catch(err => console.log(err))
+            })
+            .catch(err => console.log(err))
 
         var startHand = [];
         for (let i = 0; i < handSize; i++) {
@@ -72,7 +59,7 @@ function GamePlay(props) {
         /*Remove hand cards from deck*/
         var startDeck = [];
         for (let i = handSize; i < props.userCards.length; i++) {
-            startDeck.push(props.userCards[i]);    
+            startDeck.push(props.userCards[i]);
         }
 
         setUser(
@@ -104,22 +91,22 @@ function GamePlay(props) {
                 return card._id === parseInt(event.target.id);
             });
 
-             /*Remove played card from hand, if its a duplicate only remove the first one*/
+            /*Remove played card from hand, if its a duplicate only remove the first one*/
             var found = false;
             var cardHand = user.hand.filter(card => {
-                if(!found){
-                    if(card._id === parseInt(event.target.id)){
+                if (!found) {
+                    if (card._id === parseInt(event.target.id)) {
                         found = true;
                         return false;
-                    }else {
+                    } else {
                         return true;
                     }
-                }else {
+                } else {
                     return true;
                 }
             });
 
-          
+
 
             var newDeck = [];
             /*Move a card from the deck to the hand*/
@@ -128,12 +115,12 @@ function GamePlay(props) {
                 newDeck = user.deck.filter((card, index) => {
                     return index !== 0;
                 });
-            } 
-            if(user.deck.length === 1){
+            }
+            if (user.deck.length === 1) {
                 cardHand.push(user.deck[0]);
                 newDeck = props.userCards;
             }
-            
+
 
             console.log("Card Hand:");
             console.log(cardHand);
@@ -154,7 +141,7 @@ function GamePlay(props) {
 
             setTimeout(function () { opponentMove(opponent.health - card[0].attack, newDeck, cardHand, [...user.playedCards, card[0]]); }, 3000);
             setTurn("opponent");
-        
+
 
         }
     }
@@ -211,7 +198,7 @@ function GamePlay(props) {
                                     <div>
                                         <div className="opponentPlayedCardStats">
                                             Attack: {card.attack}
-                                            <br/>
+                                            <br />
                                             HP: {card.HP}
                                         </div>
                                         <img className="opponentCard" src={require("../assets/images/" + card.image)} alt={card.name}></img>
@@ -233,11 +220,11 @@ function GamePlay(props) {
                                         <img className="playedCard" id={card._id} src={require("../assets/images/" + card.image)} alt={card.name} onClick={cardSelect}></img>
                                         <div className="userPlayedCardStats">
                                             Attack: {card.attack}
-                                            <br/>
+                                            <br />
                                             HP: {card.HP}
                                         </div>
                                     </div>
-                                    )
+                                )
                             })}
                         </div>
                     </div>
@@ -245,24 +232,24 @@ function GamePlay(props) {
                 <div className="row userRow2">
                     <div className="col s12 userHandArea">
                         <div class="userHand  ">
-                        <div className="hp">
-                        {userName}
-                        </div>
                             <div className="hp">
-                                 Health
-                                <br />
-                                {user.health}                      
+                                {userName}
                             </div>
-                         
+                            <div className="hp">
+                                Health
+                                <br />
+                                {user.health}
+                            </div>
+
                             {user.avatar === "" ? "" : <img className="userAvatar" src={require("../assets/images/" + user.avatar)} alt="User Avatar"></img>}
                             {user.hand.map(card => {
 
                                 return (
                                     <div >
                                         <img className="userCard " id={card._id} src={require("../assets/images/" + card.image)} alt={card.name} onClick={cardSelect}></img>
-                                        <div  class="userHandStats">
+                                        <div class="userHandStats">
                                             Attack: {card.attack}
-                                            <br/>
+                                            <br />
                                             HP: {card.HP}
                                         </div>
                                     </div>

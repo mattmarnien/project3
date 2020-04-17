@@ -9,10 +9,8 @@ module.exports = {
   },
   findById: function (req, res) {
     db.Deck
-      .findOne({
-        where: {id: req.params.id},
-        include: {models: db.gameCard}
-      })
+      .findOne({_id:req.params.id})
+      .populate("card")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

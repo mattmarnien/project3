@@ -16,7 +16,7 @@ module.exports = {
     db.User
       .findOne({_id: req.params.id}
         // include: {models: db.Deck}
-      ).then(dbModel => {
+      ).populate("deck").populate("card").then(dbModel => {
         console.log(dbModel)
         res.json(dbModel)
       }).catch(err => res.status(422).json(err));
