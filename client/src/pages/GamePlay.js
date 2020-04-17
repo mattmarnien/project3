@@ -35,7 +35,7 @@ function GamePlay(props) {
   }, [])
 
   return (
-    <GamePlayPage userDeck={userDeck} userName={props.userName} userCards={userCards} userAvatar={userAvatar} opponentCards={opponentCards} opponentAvatar={opponentAvatar} />
+    <GamePlayPage userName={props.userName}  userAvatar={userAvatar} opponentAvatar={opponentAvatar} />
   )
 }
 
