@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import './style.css'
 import API from "../../utils/API"
 import Deck from "../Deck";
-
 function UserPageDeck() {
     const [userData, setUserData] = useState([]);
     const [deckData, setDeckData] = useState([]);
@@ -19,6 +18,9 @@ function UserPageDeck() {
             }
         }).catch(err => console.log(err))
     }, [])
+    const dummyArr =['1243', '1123']
+     
+    // }
 
     //console.log(userData.deck);
     console.log(deckData);
@@ -41,6 +43,8 @@ function UserPageDeck() {
             ))} */}
         </>
     )
+        
+              
+      
 }
-
 export default UserPageDeck;

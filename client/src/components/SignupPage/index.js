@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./signup.css"
 import Input from '../Input'
 import Button from '../Button'
 import API from "../../utils/API"
 
-function Signup() {
+function Signup(props) {
     const [signupForm, setSignupForm] = useState([]);
 
     const handleInputChange = event => {
@@ -14,8 +14,21 @@ function Signup() {
     }
     const handleFormSubmit = event => {
         event.preventDefault();
-        API.addUser(signupForm)
+        API.addUser(signupForm).then(data => {
+            console.log(data)
+
+            if (data.status === 200) {
+                 props.history.push('/user')
+
+              
+                // props.history.push('/user')
+                 window.location.reload();
+                // window.location='/user'
+            }
+           
+        })
     }
+    
 
     return (
         <>
@@ -47,4 +60,4 @@ function Signup() {
     )
 }
 
-export default Signup;
+export default withRouter(Signup);
