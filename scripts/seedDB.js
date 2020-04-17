@@ -194,7 +194,7 @@ const gameCardSeed = [
     //lasts 1 turn
   }, {
     name: "vaporware",
-    image: "placeholder.png",
+    image: "vaporware.jpg",
     attack: 4,
     HP: 1,
     type: 'Unit',
@@ -251,7 +251,7 @@ const gameCardSeed = [
 
   }, {
     name: "Heal",
-    image: "placeholder.png",
+    image: "heal.jpg",
     type: 'Spell',
     cost: 2,
     class: 'Arcane'
@@ -259,7 +259,7 @@ const gameCardSeed = [
 
   }, {
     name: "Scry",
-    image: "placeholder.png",
+    image: "scry.jpg",
     type: 'Spell',
     cost: 1
     //Magic spell, look at X opponent's cards, cost 1+x 
@@ -274,7 +274,7 @@ const gameCardSeed = [
 
   }, {
     name: "Resummon",
-    image: "placeholder.png",
+    image: "resummon.jpg",
     type: 'Spell',
     cost: 2,
     class: 'Arcane'
@@ -282,7 +282,7 @@ const gameCardSeed = [
 
   }, {
     name: "Interference",
-    image: "placeholder.png",
+    image: "interference.jpg",
     type: 'Spell',
     cost: 1,
     class: 'Tech'
@@ -290,7 +290,7 @@ const gameCardSeed = [
 
   }, {
     name: "Teleport",
-    image: "placeholder.png",
+    image: "teleport.jpg",
     type: 'Spell',
     cost: 1,
     class: 'Tech'
@@ -298,7 +298,7 @@ const gameCardSeed = [
 
   }, {
     name: "Whirlwind",
-    image: "placeholder.png",
+    image: "whirlwind.jpg",
     type: 'Spell',
     cost: 4,
     class: 'Arcane'
@@ -314,7 +314,7 @@ const gameCardSeed = [
 
   }, {
     name: "Shield",
-    image: "placeholder.png",
+    image: "shield.png",
     type: 'Equipment',
     cost: 2,
     class: 'Arcane'
@@ -322,7 +322,7 @@ const gameCardSeed = [
 
   }, {
     name: "Rifle",
-    image: "placeholder.png",
+    image: "rifle.jpg",
     type: 'Equipment',
     cost: 3,
     class: 'Tech'
@@ -330,7 +330,7 @@ const gameCardSeed = [
 
   }, {
     name: "Pistol",
-    image: "placeholder.png",
+    image: "pistol.jpg",
     type: 'Equipment',
     cost: 3,
     class: 'Tech'
@@ -338,7 +338,7 @@ const gameCardSeed = [
 
   }, {
     name: "Medpack",
-    image: "placeholder.png",
+    image: "medpack.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Tech'
@@ -346,7 +346,7 @@ const gameCardSeed = [
 
   }, {
     name: "Health Potion",
-    image: "placeholder.png",
+    image: "healthpotion.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Arcane'
@@ -354,7 +354,7 @@ const gameCardSeed = [
 
   }, {
     name: "Staff",
-    image: "placeholder.png",
+    image: "staff.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Arcane'
@@ -370,7 +370,7 @@ const gameCardSeed = [
 
   }, {
     name: "Totem",
-    image: "placeholder.png",
+    image: "totem.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Arcane'
@@ -378,7 +378,7 @@ const gameCardSeed = [
 
   }, {
     name: "Adrenals",
-    image: "placeholder.png",
+    image: "adrenal.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Tech'
@@ -386,7 +386,7 @@ const gameCardSeed = [
 
   }, {
     name: "Hideout",
-    image: "placeholder.png",
+    image: "hideout.jpg",
     type: 'Equipment',
     cost: 6,
     class: 'Tech'
@@ -394,7 +394,7 @@ const gameCardSeed = [
 
   }, {
     name: "Sanctum",
-    image: "placeholder.png",
+    image: "sanctum.jpg",
     type: 'Equipment',
     cost: 6,
     class: 'Arcane'
@@ -402,7 +402,7 @@ const gameCardSeed = [
 
   }, {
     name: "Ambulance",
-    image: "placeholder.png",
+    image: "ambulance.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Tech'
@@ -410,7 +410,7 @@ const gameCardSeed = [
 
   }, {
     name: "Illusion",
-    image: "placeholder.png",
+    image: "illusion.png",
     type: 'Equipment',
     cost: 2,
     class: 'Arcane'
@@ -418,7 +418,7 @@ const gameCardSeed = [
 
   }, {
     name: "Shield Spell",
-    image: "placeholder.png",
+    image: "shieldspell.jpg",
     type: 'Equipment',
     cost: 2,
     class: 'Arcane'
@@ -426,7 +426,7 @@ const gameCardSeed = [
 
   }, {
     name: "Mail",
-    image: "placeholder.png",
+    image: "mail.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Arcane'
@@ -434,7 +434,7 @@ const gameCardSeed = [
 
   }, {
     name: "Body Armor",
-    image: "placeholder.png",
+    image: "bodyarmor.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Tech'
@@ -450,7 +450,7 @@ const gameCardSeed = [
 
   }, {
     name: "Short Circuit",
-    image: "placeholder.png",
+    image: "shortcircuit.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Tech'
@@ -458,7 +458,7 @@ const gameCardSeed = [
 
   }, {
     name: "Mass Recall",
-    image: "placeholder.png",
+    image: "massrecall.jpg",
     type: 'Equipment',
     cost: 8,
     class: 'Arcane'
@@ -466,7 +466,7 @@ const gameCardSeed = [
 
   }, {
     name: "Distraction",
-    image: "placeholder.png",
+    image: "distraction.jpg",
     type: 'Equipment',
     cost: 3,
     class: 'Tech'
@@ -474,7 +474,7 @@ const gameCardSeed = [
 
   }, {
     name: "Flashbang",
-    image: "placeholder.png",
+    image: "flashbang.png",
     type: 'Equipment',
     cost: 4,
     class: 'Tech'
@@ -482,7 +482,7 @@ const gameCardSeed = [
 
   }, {
     name: "Entrench",
-    image: "placeholder.png",
+    image: "entrench.jpg",
     type: 'Equipment',
     cost: 5,
     class: 'Tech'
@@ -490,7 +490,7 @@ const gameCardSeed = [
 
   }, {
     name: "Grenade",
-    image: "placeholder.png",
+    image: "grenade.jpg",
     type: 'Equipment',
     cost: 5,
     class: 'Tech'
@@ -498,7 +498,7 @@ const gameCardSeed = [
 
   }, {
     name: "Armory",
-    image: "placeholder.png",
+    image: "armory.jpg",
     type: 'Equipment',
     cost: 4,
     class: 'Tech'
