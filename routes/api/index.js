@@ -49,6 +49,9 @@ router.route("/users/:id")
 router.route("/user")
   .get(UserController.findById)
 
+router.route("/userDecks")
+   .get(UserController.findUserDecks)
+
 
 // Deck routes
 router.route("/decks")

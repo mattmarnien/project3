@@ -22,6 +22,11 @@ export default {
   addUser: user => {
     return axios.post("/api/users", user);
   },
+
+  findUserDecks: () => {
+    return axios.get("/api/userDecks")
+  },
+
   // Deck
   getDeck: () => {
     return axios.get("/api/decks")
