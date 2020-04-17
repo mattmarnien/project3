@@ -19,7 +19,6 @@
     justify-content: center;
     height: 22vh;
     margin: 0;
-
 }
 
 .opponentPlayedCards{
@@ -82,8 +81,6 @@
     width: 90%;
     display: flex;
     justify-content: center;
-   
-
 }
 
 .userHandArea {
@@ -92,14 +89,12 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
-    
 }
 
 .userHand {
     height: 19vh;
     width: 80%;
     margin:auto;
-   /*  margin-top: 0;*/
     margin-bottom: 0; 
     background-image: url("../assets/images/player-background3.jpg");
     background-repeat: no-repeat;
@@ -115,18 +110,22 @@
     width: 10vh;
     margin-right: 5px;
 }
+
 .handCardImage {
     height: 16vh;
     width: 12vh;
     margin-right: 5px;
 }
+
 .card-content {
     margin: 0;
     padding: 0;
 }
+
 .card-title p{
     font-size:5px;
 }
+
 .userAvatar {
     height: 20vh;
     margin-right: 5px;
@@ -149,6 +148,7 @@
     margin-right: 5vw;
     text-align: center;
 }
+
 .opponentPlayedCardStats {
     font-size: 14px;
     font-family: 'Futura';
@@ -158,6 +158,7 @@
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
     text-align: center;
 }
+
 .userHand .hp {
     font-size: 20px;
     font-family: 'Futura';
@@ -176,14 +177,15 @@
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px lime, 0 0 30px lime, 0 0 40px lime, 0 0 55px lime, 0 0 75px lime;
     text-align: center;
 }
+
 .userHandStats {
     font-size: 12px;
     font-family: 'Futura';
     color: #fff;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px lime, 0 0 30px lime, 0 0 40px lime, 0 0 55px lime, 0 0 75px lime;
     text-align: center;
-
 }
+
 .playedCard {
     height: 16vh;
     width: 12vh;
@@ -192,6 +194,7 @@
     animation-duration: 2s;  
     animation-fill-mode: forwards;
   }
+
   .tooltip {
     position: relative;
     display: inline-block;
@@ -206,7 +209,6 @@
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-  
     /* Position the tooltip */
     position: absolute;
     z-index: 1;

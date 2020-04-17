@@ -5,7 +5,6 @@ const gameCardController = require("../../controllers/gameCardController");
 const UserController = require("../../controllers/UserController");
 const DeckController = require("../../controllers/deckController");
 
-
 // Auth routes
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
@@ -17,7 +16,6 @@ function isLoggedIn(req, res, next) {
 
 router.route("/login")
   .post(passport.authenticate('local'), (req, res) =>{
-    console.log(req)
     if(req){
       res.sendStatus(200)
     }
@@ -28,6 +26,14 @@ router.route("/login")
    router.get('/checkUser', isLoggedIn, (req, res) => {
      res.send(req.user)
    })
+
+  router.route('/logout')
+  .get(function (req, res){
+    req.session.destroy(function (err) {
+      // window.location('/')
+      res.redirect('/'); //Inside a callback… bulletproof!
+    });
+  });
 
 
 // gameCard routes
@@ -49,6 +55,9 @@ router.route("/users/:id")
 router.route("/user")
   .get(UserController.findById)
 
+router.route("/userDecks")
+   .get(UserController.findUserDecks)
+
 
 // Deck routes
 router.route("/decks")
@@ -57,6 +66,5 @@ router.route("/decks")
 
 router.route("/decks/:id")
   .get(DeckController.findById)
-
 
 module.exports = router;

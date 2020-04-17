@@ -1,6 +1,9 @@
 .home {
-       margin-top: 50px;
-    }
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .homeBtn {
     border-radius: 15px;
@@ -20,5 +23,10 @@
 
 .icon {
     height: 100px;
+    width: 100px;
+}
+
+.rulesBtn {
+    display: inline-block;
     width: 100px;
 }

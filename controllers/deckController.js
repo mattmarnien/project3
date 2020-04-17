@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     db.Deck
-      .find({ include: { models: db.gameCard } })
+      .find()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -29,5 +29,4 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   }
-
 };

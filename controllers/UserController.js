@@ -14,12 +14,12 @@ module.exports = {
   },
   findById: function (req, res) {
     db.User
-      .findOne({
-        where: {id: req.params.id},
-        include: {models: db.Deck}
-      })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .findOne({_id: req.params.id}
+        // include: {models: db.Deck}
+      ).then(dbModel => {
+        console.log(dbModel)
+        res.json(dbModel)
+      }).catch(err => res.status(422).json(err));
   },
   addUser: function (req, res) {
     console.log(req.body)
@@ -36,6 +36,15 @@ module.exports = {
     db.User
       .find({name: req.body.name})
       .then(user => res.json(user))
+      .catch(err => res.status(422).json(err));
+  },
+
+  findUserDecks: function (req, res) {
+    //console.log("---------findUserDeck----------")
+    //console.log(req)
+    db.User
+      .find({_id: req.user._id})
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
 }
