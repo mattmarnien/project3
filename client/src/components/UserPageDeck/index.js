@@ -4,21 +4,44 @@ import API from "../../utils/API"
 import Deck from "../Deck";
 function UserPageDeck() {
     const [userData, setUserData] = useState([]);
-    const deckArr = [];
+    const [deckData, setDeckData] = useState([]);
+
     useEffect(() => {
         API.findUserDecks().then(res => {
             setUserData(res.data[0])
+            //console.log(res.data)
+            for (let i = 0; i < userData.deck.length; i++) {
+                API.findOneDeck(userData.deck).then(result => {
+                    setDeckData(result.data);
+                })
+
+            }
         }).catch(err => console.log(err))
     }, [])
     const dummyArr =['1243', '1123']
      
     // }
 
-    console.log(userData)
+    //console.log(userData.deck);
+    console.log(deckData);
+    const deckArr = userData.deck
+
     return (
-        // userData.deck ? <> {userData.deck.map(deck => { <Deck deck={deck} />})} </> : 
-        // <> <Deck deck={dummyArr} /> </>
-        <Deck ></Deck>
+        <>
+            <h4>This will display your decks</h4>
+
+
+            <Deck 
+                name={userData.name}
+                deck={deckArr}
+            />
+
+            {/* {userData.deck.map(item => (
+            <Deck
+                deck = { item }
+            />
+            ))} */}
+        </>
     )
         
               
