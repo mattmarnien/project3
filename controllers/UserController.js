@@ -37,5 +37,14 @@ module.exports = {
       .find({name: req.body.name})
       .then(user => res.json(user))
       .catch(err => res.status(422).json(err));
+  },
+
+  findUserDecks: function (req, res) {
+    //console.log("---------findUserDeck----------")
+    //console.log(req)
+    db.User
+      .find({_id: req.user._id})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 }
