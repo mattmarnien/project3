@@ -5,16 +5,24 @@ import Deck from "../Deck";
 
 function UserPageDeck() {
     const [userData, setUserData] = useState([]);
+    const [deckData, setDeckData] = useState([]);
 
     useEffect(() => {
         API.findUserDecks().then(res => {
             setUserData(res.data[0])
-            console.log(res.data)
+            //console.log(res.data)
+            for (let i = 0; i < userData.deck.length; i++) {
+                API.findOneDeck(userData.deck).then(result => {
+                    setDeckData(result.data);
+                })
+
+            }
         }).catch(err => console.log(err))
     }, [])
 
     //console.log(userData.deck);
-    const deckArr = userData.deck;
+    console.log(deckData);
+    const deckArr = userData.deck
 
     return (
         <>
@@ -23,6 +31,7 @@ function UserPageDeck() {
 
             <Deck 
                 name={userData.name}
+                deck={deckArr}
             />
 
             {/* {userData.deck.map(item => (
