@@ -8,9 +8,7 @@ function UserPageCards() {
 
     useEffect(() => {
         API.getCards().then(res => {
-            //console.log(res.data)
             setCards(res.data)
-            console.log(cards)
         }).catch(err => console.log(err))
     }, [])
 
