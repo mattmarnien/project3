@@ -23,11 +23,12 @@ function GameCard(props) {
       <br />
       <div className='cardText center' data-card={props.name} data-id={props.id}>
         {props.cost ? "Cost: " + props.cost + "\n" : ""}
-        {props.class ? "Class: " + props.class + "\n" : ""}
+        <br />
         {props.HP ? "HP: " + props.HP + "\n" : ""}
         {props.attack ? "Attack: " + props.attack + "\n" : ""}
+        <br />
         {props.defense ? "Defense: " + props.defense + "\n" : ""}
-        {props.cardBody ? props.cardBody : ""}
+        {props.mechanics ? props.mechanics : ""}
       </div>
     </div>
   );
