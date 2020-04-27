@@ -31,6 +31,7 @@ function UserPageCards() {
                             cardBody={card.cardBody}
                             cost={card.cost}
                             class={card.class}
+                            mechanics={card.mechanics}
                         // onClick={addToDeck}
                         />
                     </div>
