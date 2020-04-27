@@ -184,7 +184,7 @@ const gameCardSeed = [
     class: 'Tech'
     //summons 1/1
   }, {
-    name: "unstable familiar",
+    name: "Unstable Familiar",
     image: "unstablefamiliar.jpg",
     attack: 4,
     HP: 1,
@@ -193,7 +193,7 @@ const gameCardSeed = [
     class: 'Arcane'
     //lasts 1 turn
   }, {
-    name: "vaporware",
+    name: "Vaporware",
     image: "vaporware.jpg",
     attack: 4,
     HP: 1,
@@ -504,41 +504,55 @@ const gameCardSeed = [
     class: 'Tech'
     // equipment cards cost 1 less, cost 4
   },
-];
-
-const userSeed = [
   {
-    name: "David",
-    password: "1234",
+    name: "Power Core",
+    image: "powerCore.jpg",
+    type: 'Resource',
+    cost: 0,
+    class: 'Tech'
   },
   {
-    name: "John",
-    password: "5678",
+    name: "Soul Stone",
+    image: "soulStone.jpg",
+    type: 'Resource',
+    cost: 0,
+    class: 'Arcane'
   }
 ];
 
-const deckSeed = [
-  {
-    name: "Sample1",
-    numberOfCards: 4,
-    card : ["5e95dde9f9956303a8f0459a"]
-  },
-  {
-    name: "Sample2",
-  }
-];
+// const userSeed = [
+//   {
+//     name: "David",
+//     password: "1234",
+//   },
+//   {
+//     name: "John",
+//     password: "5678",
+//   }
+// ];
 
-db.User
-  .remove()
-  .then(() => db.User.collection.insertMany(userSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+// const deckSeed = [
+//   {
+//     name: "Sample1",
+//     numberOfCards: 4,
+//     card : ["5e95dde9f9956303a8f0459a"]
+//   },
+//   {
+//     name: "Sample2",
+//   }
+// ];
+
+// db.User
+//   .remove()
+//   .then(() => db.User.collection.insertMany(userSeed))
+//   .then(data => {
+//     console.log(data.result.n + " records inserted!");
+//     process.exit(0);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     process.exit(1);
+//   });
 
 db.gameCard
   .remove({})
@@ -552,14 +566,14 @@ db.gameCard
     process.exit(1);
   });
 
-db.Deck
-  .remove()
-  .then(() => db.Deck.collection.insertMany(deckSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+// db.Deck
+  // .remove()
+  // .then(() => db.Deck.collection.insertMany(deckSeed))
+  // .then(data => {
+  //   console.log(data.result.n + " records inserted!");
+  //   process.exit(0);
+  // })
+  // .catch(err => {
+  //   console.error(err);
+  //   process.exit(1);
+  // });
