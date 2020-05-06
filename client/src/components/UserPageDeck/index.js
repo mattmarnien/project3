@@ -27,8 +27,10 @@ function UserPageDeck(props) {
     useEffect(() => {
         API.getOneUser(props.user)
             .then(res => {
+                if (res.data.deck[0]) {
                 setDeckName(res.data.deck[0].name)
                 setNumOfCards(res.data.deck[0].numberOfCards)
+                }
             })
     }, [])
 
