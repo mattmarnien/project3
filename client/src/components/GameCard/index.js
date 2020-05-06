@@ -5,7 +5,7 @@ const arcaneBack = require( '../assets/images/arcaneBack.jpg')
 
 function GameCard(props) {
   let cardBackground = props.class == 'Tech' ? techBack : arcaneBack;
-  console.log(cardBackground)
+  // console.log(cardBackground)
   const cardStyle = {
     cursor: 'pointer',
     width: '90%',
@@ -22,13 +22,13 @@ function GameCard(props) {
       <img className='cardImage center' data-card={props.name} data-id={props.id} src={require('../assets/cardImages/' + props.image)} />
       <br />
       <div className='cardText center' data-card={props.name} data-id={props.id}>
-        {props.cost ? "Cost: " + props.cost + "\n" : ""}
-        <br />
-        {props.HP ? "HP: " + props.HP + "\n" : ""}
-        {props.attack ? "Attack: " + props.attack + "\n" : ""}
-        <br />
-        {props.defense ? "Defense: " + props.defense + "\n" : ""}
-        {props.mechanics ? props.mechanics : ""}
+        {props.cost ? <> <span>Cost: {props.cost} </span> <br /> </> : ""}
+        {props.HP ? <> <span>HP: {props.HP} </span> <br /> </> : ""}
+        {props.attack ? <> <span>Attack: {props.Attack} </span> <br /> </> : ""}
+        {props.defense ? <> <span>Defense: {props.defense} </span> <br /> </> : ""}
+        {props.type ? props.type === "Resource" ? <> <span style={{color: "blue"}}><b>Type: {props.type}</b></span><br /> </> : <> <span>Type: {props.type} </span> <br /> </> : ""}
+        {props.class ? <> <span>Class: {props.class} </span> <br /> </> : ""}
+        {/* {props.mechanics ? props.mechanics : ""} */}
       </div>
     </div>
   );
